@@ -4,6 +4,26 @@ html, body {
 	overflow-x: hidden;
 }
 
+h1 {
+	font-family: Open Sans;
+	font-size: 32px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	margin-top: 15px;
+}
+
+h2 {
+	font-family: Open Sans;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 26.4px;
+	margin-top: 15px;
+}
+
 header {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
@@ -159,12 +179,63 @@ footer {
 	bottom: 0px;
 }
 
-h1 {
+.conteneur-produit {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border-bottom: 1px solid RGB(200, 200, 200);
+	display: table;
+}
+
+.image-produit {
+	height: 300px;
+	width: 300px;
+	float: left;
+}
+
+.description-produit {
+	display: inline-block;
+	float: left;
+	width: 784px;
+}
+
+.description-produit span {
 	font-family: Open Sans;
-	font-size: 32px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
+	font-weight: 200;
 	line-height: 26.4px;
 	margin-top: 15px;
+	text-align: justify;
+}
+
+.page-produit {
+	margin-bottom: 50px;
+}
+
+.btn-info {
+	width: 175px;
+	height: 40px;
+	float: right;
+	background-color: RGB(40, 40, 40);
+	cursor: pointer;
+	color: white;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 200;
+	line-height: 40px;
+	margin-top: 15px;
+	text-align: center;
+	transition: 0.2s;
+}
+
+.btn-info i {
+	margin-right: 15px;
+}
+
+.btn-info:hover {
+	box-shadow: 0px 0px 40px 10px RGBA(255, 255, 255, 0.07) inset, 0px 2px
+		4px 0px GREY;
 }

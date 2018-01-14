@@ -1,88 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Mon bon terroir</title>
-<link rel="stylesheet" href="style.css" type="text/css">
-<meta charset="UTF-8">
-</head>
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-	function resolution() {
-		document.getElementById("slider").style.height = (window.innerHeight - 125)
-				+ "px";
-	}
-
-	$(document).ready(function() {
-		$("a").on('click', function(event) {
-			if (this.hash !== "") {
-				event.preventDefault();
-				var hash = this.hash;
-				$('html, body').animate({
-					scrollTop : $(hash).offset().top
-				}, 800, function() {
-					window.location.hash = hash;
-				});
-			}
+	<head>
+		<title>Mon bon terroir</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<meta charset="UTF-8">
+	</head>
+	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+	
+	<script type="text/javascript">
+		function resolution() {
+			document.getElementById("slider").style.height = (window.innerHeight - 125)
+					+ "px";
+		}
+	
+		$(document).ready(function() {
+			$("a").on('click', function(event) {
+				if (this.hash !== "") {
+					event.preventDefault();
+					var hash = this.hash;
+					$('html, body').animate({
+						scrollTop : $(hash).offset().top
+					}, 800, function() {
+						window.location.hash = hash;
+					});
+				}
+			});
 		});
-	});
-</script>
-
-<body onload="resolution()">
-	<header id="header">
-		<div class="menu">
-			<div class="item-menu btn">Accueil</div>
-			<div class="item-menu btn">Produits</div>
-			<div class="item-menu btn">Nous contacter</div>
-			<input type="search" placeholder="Recherchez un produit"
-				class="rechercher">
-			<div class="compte">
-				<a href="">Se connecter</a><br/> <a href="">Créer un compte</a>
+	</script>
+	
+	<body onload="resolution()">
+		<header id="header">
+			<div class="menu">
+				<div class="item-menu btn">Accueil</div>
+				<div class="item-menu btn">Produits</div>
+				<div class="item-menu btn">Nous contacter</div>
+				<input type="search" placeholder="Recherchez un produit"
+					class="rechercher">
+				<div class="compte">
+					<a href="">Se connecter</a><br/>
+					<a href="">Créer un compte</a>
+				</div>
+			</div>
+		</header>
+	
+		<div class="slider" id="slider">
+			<img src="images/font/terroir1.jpg" alt="Terroir">
+		</div>
+	
+		<div class="legende">
+			<p>Dans le Sud-Ouest de la France, il est une terre de contrastes,
+				subtil mariage de crêtes et de vallées, que l’on nomme Quercy. Pays
+				de silence où s’érigent murets de pierre et cazelles, étranges
+				sanctuaires accrochés à la falaise. Les cuisines de Michel Catusse
+				l’artisan, fidèles à leurs savoirs de toujours vous proposent leurs
+				spécialités mitonnées dans le respect des règles de tradition, nos
+				fabrications garantissent l’absence totale de conservateurs ou de
+				colorants. Ces savoir-faire nous ont inspiré une alliance nouvelle
+				avec la Maison Henras fondée en 1820 qui nous a confié ses recettes
+				apéritives gourmandes et ses fameuses sélections de truffes de
+				première ébullition et de champignons sauvages.</p>
+		</div>
+	
+		<div class="produit">
+			<h1>Parcourez noz produits</h1>
+			<div class="categorie">
+				<a href="produit.html"><span class="conteneur"><img src="images/categories/charcuteries.jpg"></span></a> 
+				<a href="produit.html"><span class="conteneur"><img src="images/categories/fromages.jpg"></span></a> 
+				<a href="produit.html"><span class="conteneur"><img src="images/categories/fruits.jpg"></span></a> 
+				<a href="produit.html"><span class="conteneur"><img src="images/categories/boissons.jpg"></span></a> 
 			</div>
 		</div>
-	</header>
-
-	<div class="slider" id="slider">
-		<img src="images/font/terroir1.jpg" alt="Terroir">
-	</div>
-
-	<div class="legende">
-		<p>Dans le Sud-Ouest de la France, il est une terre de contrastes,
-			subtil mariage de crêtes et de vallées, que l’on nomme Quercy. Pays
-			de silence où s’érigent murets de pierre et cazelles, étranges
-			sanctuaires accrochés à la falaise. Les cuisines de Michel Catusse
-			l’artisan, fidèles à leurs savoirs de toujours vous proposent leurs
-			spécialités mitonnées dans le respect des règles de tradition, nos
-			fabrications garantissent l’absence totale de conservateurs ou de
-			colorants. Ces savoir-faire nous ont inspiré une alliance nouvelle
-			avec la Maison Henras fondée en 1820 qui nous a confié ses recettes
-			apéritives gourmandes et ses fameuses sélections de truffes de
-			première ébullition et de champignons sauvages.</p>
-	</div>
-
-	<div class="produit">
-		<h1>Parcourez noz produits</h1>
-		<div class="categorie">
-			<div class="conteneur">
-				<img src="images/categories/charcuteries.jpg">
-				<p>Charcuteries</p>
-			</div>
-			<div class="conteneur">
-				<img src="images/categories/fromages.jpg">
-			</div>
-			<div class="conteneur">
-				<img src="images/categories/fruits.jpg">
-			</div>
-			<div class="conteneur">
-				<img src="images/categories/boissons.jpg">
-			</div>
-		</div>
-	</div>
-
-	<a href="#header"><span id="scroller"></span></a>
-
-	<footer> </footer>
-</body>
+	
+		<a href="#header"><span id="scroller"></span></a>
+	
+		<footer> </footer>
+	</body>
 </html>
