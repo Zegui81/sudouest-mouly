@@ -17,7 +17,7 @@
             $html .= $produit[1];
             $html .= '</h2>';
             $html .= '<span>';
-            $html .= '$produit[2]';
+            $html .= $produit[2];
             $html .= '</span>';
             $html .= '</div>';
             $html .= '<a href="detailProduit.php?id=';
