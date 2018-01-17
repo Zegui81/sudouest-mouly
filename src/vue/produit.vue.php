@@ -2,7 +2,8 @@
 
     /* Récupère les informations de la BD dans le config.ini */
     function displayListeProduit($listeProduit) {
-        $html = "<div class=\"produit\">";
+        $html = "<div class=\"white\">";
+        $html .= "<div class=\"produit\">";
         $html .= "<h1 class=\"page-produit\">Parcourez nos produits</h1>";
         $html .= "<div class=\"liste-produits\">";
 
@@ -29,6 +30,7 @@
             $html .= "</div>";
         }
         
+        $html .= "</div>";
         $html .= "</div>";
         $html .= "</div>";
         
