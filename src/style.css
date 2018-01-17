@@ -460,9 +460,5 @@ footer {
 }
 
 .btn-valider:hover{
-	background-color:RGB(100,100,100);
-}
-
-.btn-annuler:hover{
-	background-color:RGB(100,100,100);
+	background-color:RGB(25,25,25);
 }
