@@ -7,5 +7,9 @@
         $html .= "</p></div>";
         echo $html;
     }
-
+    
+    function displayScroller() {
+        echo "<a href=\"#header\"><span id=\"scroller\"></span></a><footer></footer>";
+    }
+    
 ?>

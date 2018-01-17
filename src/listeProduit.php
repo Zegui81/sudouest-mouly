@@ -4,15 +4,13 @@
 		<title>Mon bon terroir</title>
 		<link rel="stylesheet" href="style.css" type="text/css">
 		<meta charset="UTF-8">
-		<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
 	</head>
-		
-	<script type="text/javascript">
-		function resolution() {
-			document.getElementById("slider").style.height = (window.innerHeight - 125) + "px";
-		}
 	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script type="text/javascript">
 		$(document).ready(function() {
 			$("a").on('click', function(event) {
 				if (this.hash !== "") {
@@ -28,7 +26,7 @@
 		});
 	</script>
 	
-	<body onload="resolution()">
+	<body>
 		<header id="header">
 			<div class="menu">
 				<div class="item-menu btn"><a href="index.php">Accueil</a></div>
@@ -42,24 +40,21 @@
 			</div>
 		</header>
 	
-		<div class="slider" id="slider">
-			<img src="images/font/terroir1.jpg" alt="Terroir">
-		</div>
-	
-		<?php
-		  include 'bd/divers.bd.php';
-		  include 'bd/categorie.bd.php';
-		  include 'vue/divers.vue.php';
-		  include 'vue/categorie.vue.php';
-		  
-		  displayDescriptionAccueil(getDescriptionAccueil());
-		  displayListeCategorie(getListeCategorie());
-		  
-		  displayScroller();
+		<?php 
+    		include 'bd/produit.bd.php';
+    		include 'vue/produit.vue.php';
+    		
+    		if (isset($_GET['categorie'])){
+    		    $categorie = $_GET['categorie'];
+    		} else {
+    		    header('Location: categorie.php');
+    		}
+    		
+    		displayListeProduit(getListeProduitByCategorie($categorie));
 		?>
 	
-		
+		<a href="#header"><span id="scroller"></span></a>
 	
-		
+		<footer> </footer>
 	</body>
 </html>

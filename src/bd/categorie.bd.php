@@ -1,6 +1,6 @@
 <?php
 
-	/* Récupère les informations de la BD dans le config.ini */
+	/* Récupère toutes les catégories disponibles */
 	function getListeCategorie() {
 		$cnx = openBD(); // Connexion à la base de données
 		
@@ -8,10 +8,11 @@
 		$listecat = $cnx->prepare($rqt);
 		$listecat->setFetchMode(PDO::FETCH_OBJ);
 					
-		$aRetouner = array(array());
+		$aRetouner = array();
 		if ($listecat->execute()) {
 			$i=0;
 			while($row = $listecat->fetch()) {
+			    $aRetouner[$i] = array();
 				$aRetouner[$i][0] = $row->code;
 				$aRetouner[$i][1] = $row->nom;
 				$aRetouner[$i][2] = $row->description;
