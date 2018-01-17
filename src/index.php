@@ -6,6 +6,7 @@
 		<meta charset="UTF-8">
 		<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+		<script  src="js/connexion.js"></script>
 	</head>
 		
 	<script type="text/javascript">
@@ -36,7 +37,7 @@
 				<div class="item-menu btn">Nous contacter</div>
 				<input type="search" placeholder="Recherchez un produit" class="rechercher">
 				<div class="compte">
-					<a href="">Se connecter</a><br/>
+					<a onclick="openPopupConnexion()">Se connecter</a><br/>
 					<a href="">Créer un compte</a>
 				</div>
 			</div>

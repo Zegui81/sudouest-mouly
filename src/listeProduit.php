@@ -4,11 +4,11 @@
 		<title>Mon bon terroir</title>
 		<link rel="stylesheet" href="style.css" type="text/css">
 		<meta charset="UTF-8">
-	</head>
-	
-	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script  src="js/connexion.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -24,9 +24,12 @@
 				}
 			});
 		});
+		
 	</script>
+	</head>
 	
 	<body>
+	
 		<header id="header">
 			<div class="menu">
 				<div class="item-menu btn"><a href="index.php">Accueil</a></div>
@@ -34,8 +37,8 @@
 				<div class="item-menu btn">Nous contacter</div>
 				<input type="search" placeholder="Recherchez un produit" class="rechercher">
 				<div class="compte">
-					<a href="">Se connecter</a><br/>
-					<a href="">Créer un compte</a>
+					<a onclick="openPopupConnexion()">Se connecter</a><br/>
+					<a href="" >Créer un compte</a>
 				</div>
 			</div>
 		</header>
