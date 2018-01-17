@@ -8,6 +8,10 @@ body {
 	background-image: URL("images/font/background-noise.jpg");
 }
 
+input:focus, select:focus, textarea:focus, button:focus {
+	outline: none;
+}
+
 .white {
 	background-color: white;
 }
@@ -374,4 +378,91 @@ footer {
 	text-align: center;
 	margin-top: 25px;
 	padding-bottom: 25px;
+}
+
+.no-merge {
+	margin-bottom: 0px;
+}
+
+.liste-item-inscription {
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 800;
+	line-height: 40px;
+	padding-bottom: 25px;
+}
+
+.item-gauche {
+	display: inline-block;
+	width: 50%;
+	float: left;
+}
+
+.item-gauche span {
+	margin-top: 15px;
+	display: inline-block;
+	width: 180px;
+}
+
+.item-gauche input {
+	float: left;
+	display: inline-block;
+	width: 90%;
+	padding-left: 10px;
+	height: 30px;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	line-height: 30px;
+	color: RGB(45, 45, 45);
+}
+
+.item-droit {
+	display: inline-block;
+	width: 50%;
+}
+
+.item-droit span {
+	margin-top: 15px;
+	display: inline-block;
+	width: 180px;
+}
+
+.item-droit input {
+	float: left;
+	display: inline-block;
+	width: 90%;
+	padding-left: 10px;
+	height: 30px;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	line-height: 30px;
+	color: RGB(45, 45, 45);
+}
+
+.btn-inscription {
+	margin-top:35px !important;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid RGB(50,50,50);
+	float:right;
+	margin-right:7.5%;
+	transition:0.2s;
+	background-color:RGB(50,50,50);
+	color:white;
+}
+
+.btn-valider:hover{
+	background-color:RGB(100,100,100);
+}
+
+.btn-annuler:hover{
+	background-color:RGB(100,100,100);
 }
