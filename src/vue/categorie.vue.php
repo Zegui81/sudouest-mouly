@@ -11,7 +11,9 @@
             $html .= $categorie[0];
             $html .= '"><span class="conteneur"><img src="images/categories/';
             $html .= $categorie[0];
-            $html .= '.jpg"></span></a>';
+            $html .= '.jpg"><figcaption class="legende-categorie">';
+            $html .= $categorie[1];
+            $html .= '</figcaption></span></a>';
         }
         $html .= '</div>';
         $html .= '</div>';
