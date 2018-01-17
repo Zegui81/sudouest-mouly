@@ -80,6 +80,7 @@ header .menu .compte {
 header .menu .compte a {
 	color: white;
 	line-height: 14px;
+	cursor:pointer;
 }
 
 header a {
@@ -379,17 +380,79 @@ footer {
 
 .popup {
 	display: block;
-	position: fixed;
-	padding: 10px;
-	width: 280px;
+	padding: 25px;
+	width: 27%;
 	left: 50%;
-	margin-left: -150px;
-	height: 180px;
 	top: 50%;
-	margin-top: -100px;
-	background: #FFF;
 	z-index: 20;
-	transition: opacity 500ms;	
+	transition: 0.2s;	
+	background-color:RGB(255,255,255);
+	box-shadow:0px 0px 50px RGBA(0,0,0,1);
+	margin:auto;
+	margin-top: 20%;	
+	height:300px;
+}
+
+.popup span {
+	margin-top: 15px;
+	display: inline-block;
+	width: 180px;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	line-height: 30px;
+	color: RGB(45, 45, 45);
+}
+
+.popup input {
+	float: left;
+	display: inline-block;
+	width: 97.5%;
+	padding-left: 10px;
+	height: 30px;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	line-height: 30px;
+	color: RGB(45, 45, 45);
+}
+
+.btn-popup {
+	height: 30px;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	margin-top:35px !important;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid RGB(50,50,50);
+	transition:0.2s;
+	background-color:RGB(50,50,50);
+	color:white;
+	display: inline-block;
+	width: 180px;
+	text-decoration:none;
+	color:white;
+	height:40px;
+	line-height: 40px;
+}
+
+.align-gauche{
+	float:left;
+}
+
+.align-droite{
+	float:right;
+}
+
+.btn-popup:hover{
+	background-color:RGB(25,25,25);
 }
 
 .overlay {
