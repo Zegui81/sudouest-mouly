@@ -9,8 +9,8 @@
         $html .= '<div class="item-menu btn">Nous contacter</div>';
         $html .= '<input type="search" placeholder="Recherchez un produit" class="rechercher">';
         $html .= '<div class="compte">';
-        $html .= '<a onclick="openPopupConnexion()">Se connecter</a><br/>';
-        $html .= '<a href="inscription.php">Créer un compte</a>';
+        $html .= '<a onclick="openPopupConnexion()"><i class="fa fa-sign-in" aria-hidden="true"></i>Se connecter</a>';
+        $html .= '<a href="inscription.php" class="marge-lien"><i class="fa fa-user" aria-hidden="true"></i>Créer un compte</a>';
         $html .= '</div>';
         $html .= '</div>';
         $html .= '</header>';
