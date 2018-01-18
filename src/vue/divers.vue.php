@@ -17,6 +17,38 @@
         echo $html;
     }
     
+    function displayMenuUser($sessionActive, $sessionAdmin) {
+        $html = '<header id="header">';
+        $html .= '<div class="menu">';
+        $html .= '<div class="item-menu btn"><a href="index.php">Accueil</a></div>';
+        $html .= '<div class="item-menu btn">Produits</div>';
+        $html .= '<div class="item-menu btn">Nous contacter</div>';
+        $html .= '<input type="search" placeholder="Recherchez un produit" class="rechercher">';
+        $html .= '<div class="compte">';
+        $html .= '<a onclick="openPopupConnexion()"><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mon panier</a>';
+        $html .= '<a href="inscription.php" class="marge-lien"><i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter</a>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</header>';
+        echo $html;
+    }
+    
+    function displayMenuAdmin($sessionActive, $sessionAdmin) {
+        $html = '<header id="header">';
+        $html .= '<div class="menu">';
+        $html .= '<div class="item-menu btn"><a href="index.php">Accueil</a></div>';
+        $html .= '<div class="item-menu btn">Produits</div>';
+        $html .= '<div class="item-menu btn">Nous contacter</div>';
+        $html .= '<input type="search" placeholder="Recherchez un produit" class="rechercher">';
+        $html .= '<div class="compte">';
+        $html .= '<a onclick="openPopupConnexion()"><i class="fa fa-wrench" aria-hidden="true"></i>Administrer</a>';
+        $html .= '<a href="inscription.php" class="marge-lien"><i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter</a>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</header>';
+        echo $html;
+    }
+    
     function displaySliderAccueil() {
         echo '<div class="slider" id="slider"><img src="images/font/terroir1.jpg" alt="Terroir"></div>';
     }

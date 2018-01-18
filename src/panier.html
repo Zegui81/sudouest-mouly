@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mon bon terroir</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<meta charset="UTF-8">
+	</head>
+	
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a").on('click', function(event) {
+				if (this.hash !== "") {
+					event.preventDefault();
+					var hash = this.hash;
+					$('html, body').animate({
+						scrollTop : $(hash).offset().top
+					}, 800, function() {
+						window.location.hash = hash;
+					});
+				}
+			});
+		});
+	</script>
+	
+	<body>
+		<header id="header">
+			<div class="menu">
+				<div class="item-menu btn">Accueil</div>
+				<div class="item-menu btn">Produits</div>
+				<div class="item-menu btn">Nous contacter</div>
+				<input type="search" placeholder="Recherchez un produit" class="rechercher">
+				<div class="compte">
+					<a href="">Se connecter</a><br/>
+					<a href="">Créer un compte</a>
+				</div>
+			</div>
+		</header>
+		<div class="white">
+			<div class="produit">
+				<h1 class="page-produit">Mon panier</h1>
+				<div class="liste-produits">
+					<div class="conteneur-produit">
+						<div class="image-produit">
+							<img src="images/produits/1.jpg">
+						</div>
+						<div class="description-produit">
+							<h2>Bordeaux Rouge</h2>
+							<span>Non ergo erunt homines deliciis diffluentes audiendi,
+								si quando de amicitia, quam nec usu nec ratione habent cognitam,
+								disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+								velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+								circumfluere omnibus copiis atque in omnium rerum abundantia
+								vivere? Haec enim est tyrannorum vita nimirum, in qua nulla fides,
+								nulla caritas, nulla stabilis benevolentiae potest esse fiducia,
+								omnia semper suspecta atque sollicita, nullus locus amicitiae.</span>
+						</div>
+						<span class="btn-ajout">
+							<i class="fa fa-trash-o" aria-hidden="true"></i>Enlever du panier
+						</span>
+						<div class="btn-prix total">
+							43.00 €
+						</div>
+						<div class="btn-prix no-border">
+							=
+						</div>
+						<div class="btn-prix">
+							10.75 €
+						</div>
+						<div class="btn-prix no-border">
+							x
+						</div>
+						<div class="btn-prix">
+							4
+						</div>
+						<div class="btn-qtt-lbl">
+							<span>Quantité : </span>
+						</div>
+					</div>
+					
+					<div class="conteneur-produit">
+						<div class="image-produit">
+							<img src="images/produits/1.jpg">
+						</div>
+						<div class="description-produit">
+							<h2>Bordeaux Rouge</h2>
+							<span>Non ergo erunt homines deliciis diffluentes audiendi,
+								si quando de amicitia, quam nec usu nec ratione habent cognitam,
+								disputabunt. Nam quis est, pro deorum fidem atque hominum! qui
+								velit, ut neque diligat quemquam nec ipse ab ullo diligatur,
+								circumfluere omnibus copiis atque in omnium rerum abundantia
+								vivere? Haec enim est tyrannorum vita nimirum, in qua nulla fides,
+								nulla caritas, nulla stabilis benevolentiae potest esse fiducia,
+								omnia semper suspecta atque sollicita, nullus locus amicitiae.</span>
+						</div>
+						<span class="btn-ajout">
+							<i class="fa fa-trash-o" aria-hidden="true"></i>Enlever du panier
+						</span>
+						<div class="btn-prix total">
+							43.00 €
+						</div>
+						<div class="btn-prix no-border">
+							=
+						</div>
+						<div class="btn-prix">
+							10.75 €
+						</div>
+						<div class="btn-prix no-border">
+							x
+						</div>
+						<div class="btn-prix">
+							4
+						</div>
+						<div class="btn-qtt-lbl">
+							<span>Quantité : </span>
+						</div>
+					</div>
+					
+					<div class="conteneur-produit total-final">
+						<div class="btn-prix total prix-final">
+							129.00 €
+						</div>
+						<h1>TOTAL</h1>
+					</div>
+				</div>
+			</div>
+		
+			<a href="#header"><span id="scroller"></span></a>
+		</div>
+		<footer class="remplissage"> </footer>
+	</body>
+</html>
