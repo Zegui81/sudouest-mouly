@@ -69,8 +69,8 @@ header .menu .item-menu {
 	color: white;
 	margin-left: 10px;
 	margin-right: 10px;
-	height:70px;
-	float:left;
+	height: 70px;
+	float: left;
 }
 
 header .menu .compte {
@@ -81,7 +81,7 @@ header .menu .compte {
 	margin-right: 10px;
 	font-size: 18px;
 	line-height: 14px;
-	height:70px;
+	height: 70px;
 }
 
 header .menu .compte a {
@@ -97,21 +97,21 @@ header .menu .compte a {
 	height: 30px;
 	display: block;
 	text-align: center;
-	border: 1px solid RGBA(255,255,255,0.4);
-	transition:0.2s;
+	border: 1px solid RGBA(255, 255, 255, 0.4);
+	transition: 0.2s;
 }
 
-header .menu .compte a:hover{
+header .menu .compte a:hover {
 	background-color: RGBA(255, 255, 255, 0.03);
-	padding-left:20px;
+	padding-left: 20px;
 }
 
-.marge-lien{
-	margin-top:10px;
+.marge-lien {
+	margin-top: 10px;
 }
 
-.compte i{
-	margin-right:10px;
+.compte i {
+	margin-right: 10px;
 }
 
 header a {
@@ -125,22 +125,22 @@ header .menu .rechercher {
 	height: 40px;
 	background-color: RGB(40, 40, 40);
 	color: white;
-	border: 2px solid RGBA(255,255,255,0.4);
+	border: 2px solid RGBA(255, 255, 255, 0.4);
 	border-radius: 15px;
 	padding-left: 10px;
 	margin-left: 50px;
 	margin-right: 50px;
-	margin-bottom:15px;
-	margin-top:15px;
-	float:left;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	float: left;
 }
 
 header .menu .rechercher:active {
-	border: 2px solid RGBA(255,255,255,0.8);
+	border: 2px solid RGBA(255, 255, 255, 0.8);
 }
 
 header .menu .rechercher:focus {
-	border: 2px solid RGBA(255,255,255,0.8);
+	border: 2px solid RGBA(255, 255, 255, 0.8);
 }
 
 header .item-menu:hover {
@@ -361,7 +361,6 @@ footer {
 	width: 100px;
 	height: 38px;
 	float: right;
-	cursor: pointer;
 	color: RGB(100, 100, 100);;
 	font-family: Open Sans;
 	font-size: 14px;
@@ -374,6 +373,41 @@ footer {
 	transition: 0.2s;
 	margin-right: 25px;
 	border: 1px solid RGB(125, 125, 125);
+	background-color: RGB(235, 235, 235);
+}
+
+.total {
+	font-size: 16px !important;
+	font-weight: 900 !important;
+	color: RGB(20, 20, 20) !important;
+	background-color: RGB(215, 215, 215);
+	border: 1px solid black;
+}
+
+.total-final {
+	width: 100%;
+}
+
+.total-final h1 {
+	float: right;
+	line-height: 50px;
+	margin-right: 20px;
+	font-weight: 900;
+}
+
+.prix-final {
+	height: 50px;
+	width: 200px;
+	line-height: 50px;
+	font-size: 30px !important;
+	font-weight: 900;
+	margin-right: 0;
+}
+
+.no-border {
+	border: none !important;
+	width: 5px !important;
+	background-color: white !important;
 }
 
 .produit-simili {
@@ -612,15 +646,15 @@ footer {
 	bottom: 50px;
 }
 
- input.input-error{
+input.input-error {
 	border: 1px solid RGB(255, 125, 125);
 	color: RGB(255, 125, 125) !important;
 }
 
-input.input-error::placeholder{
+input.input-error::placeholder {
 	color: RGB(255, 125, 125) !important;
 }
 
-span.input-error{
+span.input-error {
 	color: RGB(255, 125, 125) !important;
 }
