@@ -7,7 +7,7 @@ function validateInscription() {
     var confirmPassword = formulaire["confirmPassword"].value;
     var nom = formulaire["nom"].value;
 
-    var listeErreur = {};
+    var listeErreur = [];
     var ok = true;
 	// Contrôle des champs obligatoires remplis
     if (mail === "") { // MAIL
@@ -26,7 +26,7 @@ function validateInscription() {
 	
     if (password === "") { // PASSWORD
     	$('input[name="password"]').addClass('input-error');
-    	$('#labelPassword').addClass('input-error');
+    	$('#labelPassWord').addClass('input-error');
     	listeErreur.push('Le champ "Mot de passe" est obligatoire');
     	ok = false;
     }
@@ -54,7 +54,24 @@ function validateInscription() {
     }
 	
 	// Contrôle de l'unicité de l'adresse mail et du pseudo
-	
+    if (mail !== '' && pseudo !== '') {
+    	$.ajax({
+    		async: false,
+    		url: 'ajax/testEmailPseudoInscription.php',
+    		type: 'POST',
+            dataType: 'text',
+    		data: {
+    			mail : mail, 
+    			pseudo : pseudo
+    		},
+    		success: function(resultat) {
+    			alert(resultat);
+    		},
+    		error: function(error) {
+				alert(error);
+			}
+    	});
+    }
 	// Contrôle de l'égalité des deux champs du mot de passe
 	
 	// Contrôle du format du code postal
