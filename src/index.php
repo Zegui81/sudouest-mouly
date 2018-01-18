@@ -11,7 +11,7 @@
 		
 		<script src="js/connexion.js"></script>
 	</head>
-	<body onload="document.getElementById('slider').style.height = (window.innerHeight - 125) + 'px';">
+	<body onload="document.getElementById('slider').style.height = (window.innerHeight - 110) + 'px';">
 		<?php
 		  include 'bd/divers.bd.php';
 		  include 'bd/categorie.bd.php';
