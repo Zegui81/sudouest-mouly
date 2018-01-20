@@ -16,9 +16,8 @@
 		    include 'vue/divers.vue.php';
 		    
 		    displayMenu(false, false);
-		   	require 'ajax/inscription.html';
+		   	require 'form/inscription.html';
+		   	displayScroller();
 		?>
-		
-		<footer></footer>
 	</body>
 </html>

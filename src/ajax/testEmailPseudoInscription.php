@@ -4,11 +4,11 @@
     $mail = $_POST['mail'];
     $pseudo = $_POST['pseudo'];
     
-    $return = '{mail : ';
+    $return = '{"mail" : ';
     $return .= existMail($mail) === 0 ? 0 : 1;
-    $return .= ', pseudo : ';
+    $return .= ', "pseudo" : ';
     $return .= existPseudo($pseudo) === 0 ? 0 : 1;
     $return .= '}';
 
-    echo $return;
+    echo json_encode($return);
 ?>
