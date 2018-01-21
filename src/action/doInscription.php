@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'bd/utilisateur.bd.php';
+    require '../bd/utilisateur.bd.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         createUtilisateur(
             $_POST['pseudo'],
@@ -15,5 +15,5 @@
     }
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['statut'] = 0;
-    header('Location: index.php');
+    header('Location: ../index.php');
 ?>

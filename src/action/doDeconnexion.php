@@ -4,5 +4,5 @@
         session_unset($_SESSION["pseudo"]);
         session_unset($_SESSION["statut"]);
     }
-    header('Location: index.php');
+    header('Location: ../index.php');
 ?>

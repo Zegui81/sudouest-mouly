@@ -19,7 +19,7 @@ function validateConnexion() {
 		// Contrôle de la validité
 		$.ajax({
     		async: false,
-    		url: 'ajax/tryConnexion.php',
+    		url: 'ajax/controlConnexion.php',
     		type: 'POST',
             dataType: 'json',
     		data: {
