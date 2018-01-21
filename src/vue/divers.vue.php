@@ -1,6 +1,30 @@
 <?php
+
+    /* Ajoute la partie head de la page chargée */
+    function includeHead() {
+        $html = '<title>Mon bon terroir</title>';
+        $html .= '<meta charset="UTF-8">';
+        $html .= '<link rel="stylesheet" href="style.css" type="text/css">';
+        $html .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
+        $html .= '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">';
+        $html .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+        $html .= '<script src="js/scroller.js"></script>';
+        
+        if (!isset($_SESSION['pseudo'])) {
+            // Aucune session, import de la popup de connexion
+            $html .= '<script src="js/connexion.js"></script>';
+        }
+        
+        if (basename($_SERVER['PHP_SELF']) == 'inscription.php') {
+            // On se situe sur la page de l'inscription, import du js associé
+            $html .= '<script src="js/inscription.js"></script>';
+        }
+        
+        echo $html;
+    }
+
     /* Affiche le menu au sommet de la page */
-    function displayMenu($sessionActive, $sessionAdmin) {
+    function displayMenu() {
         $session = false;
         $admin = false;
         if (isset($_SESSION['pseudo'])) {
