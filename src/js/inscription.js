@@ -60,7 +60,7 @@ function validateInscription() {
     if (mail !== '' && pseudo !== '') {
     	$.ajax({
     		async: false,
-    		url: 'ajax/testEmailPseudoInscription.php',
+    		url: 'ajax/controlEmailPseudoInscription.php',
     		type: 'POST',
             dataType: 'json',
     		data: {

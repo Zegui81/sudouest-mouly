@@ -1,7 +1,15 @@
 <div class="popup">
 	<h1>Connectez-vous</h1>
-	<span>Pseudo :</span><input type="text" placeholder="pseudonyme" class="input-inscription"><br/>
-	<span>Mot de passe :</span><input type="password" placeholder="mot de passe" class="input-inscription"><br/>
-	<a onclick="closePopupConnexion()" class="btn-popup align-gauche">Annuler</a>
-	<a onclick="hide('popup1')" class="btn-popup align-droite">Valider</a>
+	
+	<form name="connexion" method="POST" onsubmit="return validateConnexion()" action="validation-connexion.php">
+	
+		<span>Pseudo :</span>
+		<input type="text" name="pseudo" placeholder="pseudonyme" class="input-inscription" id="pseudo"><br/>
+		
+		<span>Mot de passe :</span>
+		<input type="password" name="password" placeholder="mot de passe" class="input-inscription" id="mdp"><br/>
+		
+		<a onclick="closePopupConnexion()" class="btn-popup align-gauche">Annuler</a>
+		<input class="btn-popup align-droite btn-inscription" type="submit" value="Valider">
+	</form>
 </div>

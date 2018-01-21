@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require 'bd/utilisateur.bd.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         createUtilisateur(
@@ -6,12 +7,13 @@
             $_POST['mail'], 
             password_hash($_POST['password'], PASSWORD_DEFAULT),
             $_POST['nom'],
-            $_POST['prenom'],
-            $_POST['naissence'],
-            $_POST['adresse'], 
-            $_POST['cp'],  
-            $_POST['ville']);
+            empty($_POST['prenom']) ? null : $_POST['prenom'],
+            empty($_POST['naissence']) ? null : $_POST['naissence'],
+            empty($_POST['adresse']) ? null : $_POST['adresse'],
+            empty($_POST['cp']) ? null : $_POST['cp'],
+            empty($_POST['ville']) ? null : $_POST['ville']);
     }
-    
-    //header('Location: index.php');
+    $_SESSION['pseudo'] = $_POST['pseudo'];
+    $_SESSION['statut'] = 0;
+    header('Location: index.php');
 ?>
