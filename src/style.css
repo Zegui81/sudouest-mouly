@@ -673,3 +673,8 @@ input.input-error::placeholder {
 span.input-error {
 	color: RGB(255, 125, 125) !important;
 }
+
+.liste-produits-similaires a{
+	color: RGB(40,40,40);
+	font-family: Open Sans;
+}
