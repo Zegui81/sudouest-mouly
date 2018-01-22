@@ -49,7 +49,7 @@
         $html .= '<h2>'.$produit[1].'</h2>';
         $html .= '<span>'.$produit[2].'</span>';
         $html .= '</div>';
-        $html .= '<a href="action/doAjoutPanier.php" onclick="verificationConnexion(';
+        $html .= '<a onclick="verificationConnexion(';
         $html .= (isset($_SESSION['pseudo']) ? ('\''.$_SESSION['pseudo'].'\'') : 'null').',';
         $html .= $produit[0];
         $html .= ')"><span class="btn-ajout">';
