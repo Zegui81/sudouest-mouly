@@ -8,5 +8,4 @@ function verificationConnexion(pseudo, idProduit) {
 		window.location.replace('action/doAjoutPanier.php?produit=' + idProduit
 				+ '&quantite=' + $('#quantite').val());
 	}
-
 }
