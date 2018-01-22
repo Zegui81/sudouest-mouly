@@ -16,7 +16,7 @@
     		$produit = getProduitById($_GET['id']);
     		if ($produit == null) {
     		    // Le produit n'existe pas, redirection vers l'accueil
-    		    //header('Location: index.php');
+    		    header('Location: index.php');
     		} // else, affichage de la page
     		displayProduit($produit);
     		

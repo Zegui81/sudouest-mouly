@@ -49,17 +49,19 @@
         $html .= '<h2>'.$produit[1].'</h2>';
         $html .= '<span>'.$produit[2].'</span>';
         $html .= '</div>';
-        $html .= '<span class="btn-ajout">';
+        $html .= '<a href="action/doAjoutPanier.php" onclick="verificationConnexion(';
+        $html .= (isset($_SESSION['pseudo']) ? ('\''.$_SESSION['pseudo'].'\'') : 'null').',';
+        $html .= $produit[0];
+        $html .= ')"><span class="btn-ajout">';
         $html .= '<i class="fa fa-shopping-basket" aria-hidden="true"></i>Ajouter au panier';
-        $html .= '</span>';
+        $html .= '</span></a>';
         $html .= '<div class="btn-prix">'.number_format($produit[3], 2, ',', ' ').' €</div>';
         $html .= '<div class="btn-qtt-cbx">';
-        $html .= '<select>';
+        $html .= '<select id="quantite">';
         
         // Stocks disponibles avec 10 maximum
-        for ($i = 0; $i < $produit[4] && $i <= 10; $i++) {
+        for ($i = 0; $i <= $produit[4] && $i <= 10; $i++) {
             $html .= '<option value="'.$i.'">'.$i.'</option>';
-
         }
         
         $html .= '</select>';
@@ -77,7 +79,7 @@
     function displayListeProduitSimilaire($listeProduit) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
-        $html .= '<h1 class="page-produit">Parcourez nos produits similaires</h1>';
+        $html .= '<h1 class="page-produit">Vous aimerez aussi...</h1>';
         $html .= '<div class="liste-produits-similaires">';
         
         foreach ($listeProduit as $produit) {

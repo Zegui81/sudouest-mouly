@@ -1,5 +1,4 @@
-<?php
-    session_start();
+<?php session_start();
     require '../bd/utilisateur.bd.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         createUtilisateur(

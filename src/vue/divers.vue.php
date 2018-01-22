@@ -20,6 +20,11 @@
             $html .= '<script src="js/inscription.js"></script>';
         }
         
+        if (basename($_SERVER['PHP_SELF']) == 'detailProduit.php') {
+            // On se situe sur la page de l'inscription, import du js associé
+            $html .= '<script src="js/ajouterAuPanier.js"></script>';
+        }
+        
         echo $html;
     }
 
