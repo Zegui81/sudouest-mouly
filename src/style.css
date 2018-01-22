@@ -238,7 +238,6 @@ footer {
 
 .conteneur-produit {
 	margin-top: 25px;
-	margin-bottom: 25px;
 	border-bottom: 1px solid RGB(200, 200, 200);
 	display: table;
 	padding-bottom: 25px;
@@ -500,10 +499,8 @@ footer {
 .btn-popup {
 	height: 30px;
 	font-family: Open Sans;
-	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 300;
 	margin-top: 35px !important;
 	cursor: pointer;
 	text-align: center;
@@ -515,8 +512,10 @@ footer {
 	width: 180px;
 	text-decoration: none;
 	color: white;
-	height: 40px;
-	line-height: 40px;
+	height: 40px !important;
+	line-height: 40px !important;
+	font-size: 16px !important;
+	font-weight: 400 !important;
 }
 
 .align-gauche {
@@ -624,6 +623,22 @@ footer {
 	line-height: 35px !important;
 	font-size: 16px !important;
 	font-weight: 400 !important;
+}
+
+.btn-connexion{
+	margin-top: 35px !important;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid RGB(50, 50, 50);
+	transition: 0.2s;
+	background-color: RGB(50, 50, 50);
+	color: white !important;
+	float: right !important;
+	width: 200px !important;
+	line-height: 40px !important;
+	font-size: 16px !important;
+	font-weight: 400 !important;
+	height:42px !important;
 }
 
 .btn-valider:hover {
