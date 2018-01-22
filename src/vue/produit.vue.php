@@ -83,11 +83,11 @@
         $html .= '<div class="liste-produits-similaires">';
         
         foreach ($listeProduit as $produit) {
-            $html .= '<span class="produit-simili">';       
+            $html .= '<a href="detailProduit.php?id='.$produit[0].'"><span class="produit-simili">';       
             $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
             $html .= '<h2>'.$produit[1].'</h2>';
             $html .= '<h3>'.number_format($produit[2], 2, ',', ' ').' €</h3>';
-            $html .= '</span>';
+            $html .= '</span></a>';
         }
         
         $html .= '</div>';
