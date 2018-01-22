@@ -7,15 +7,13 @@
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<?php includeHead(); ?>
-	</head>	
+	<head><?php includeHead(); ?></head>	
 	<body>
-		<?php
-		    displayMenu();
+		<?php displayMenu();
 		    
 		   	require 'form/inscription.html';
-		   	displayScroller();
+		   	
+		   	displayScroller(); // Scroller pour remonter
 		?>
 	</body>
 </html>

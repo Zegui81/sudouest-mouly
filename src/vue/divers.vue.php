@@ -76,4 +76,9 @@
         echo '<a href="#header"><span id="scroller"></span></a><footer></footer>';
     }
     
+    /* Affiche le bouton permettant de revenir au sommet de la page sur la page détail */
+    function displayScrollerDetailProduit() {
+        echo '<a href="#header"><span id="scroller"></span></a><footer class="remplissage"></footer>';
+    }
+    
 ?>

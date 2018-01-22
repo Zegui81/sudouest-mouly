@@ -5,12 +5,9 @@
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<?php includeHead(); ?>
-	</head>
+	<head><?php includeHead(); ?></head>
 	<body>	
-		<?php 
-    		displayMenu();
+		<?php displayMenu();
     		
     		if (isset($_GET['categorie'])){
     		    $categorie = $_GET['categorie'];
@@ -21,7 +18,7 @@
     		// Contenu de la liste
     		displayListeProduit(getListeProduitByCategorie($categorie));
     		
-    		displayScroller();
+    		displayScroller(); // Scroller pour remonter
 		?>
 	</body>
 </html>

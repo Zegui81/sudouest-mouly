@@ -6,20 +6,17 @@
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
-		<?php includeHead(); ?>
-	</head>
+	<head><?php includeHead(); ?></head>
 	<body onload="document.getElementById('slider').style.height = (window.innerHeight - 110) + 'px';">
-		<?php
-		  // Page d'accueil
-		  displayMenu();
+		<?php displayMenu();
+		
 		  displaySliderAccueil();
 		  displayDescriptionAccueil(getDescriptionAccueil());
 		  
-		  // Contenu de l'accueil
+		  // Catégories
 		  displayListeCategorie(getListeCategorie());
 		  
-		  displayScroller();
+		  displayScroller(); // Scroller pour remonter
 		?>
 	</body>
 </html>
