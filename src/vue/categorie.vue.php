@@ -1,5 +1,4 @@
 <?php
-
     /* Récupère les informations de la BD dans le config.ini */
     function displayListeCategorie($listeCategorie) {
         $html = '<div class="white">';
@@ -21,5 +20,4 @@
         
         echo $html;
     }
-
 ?>

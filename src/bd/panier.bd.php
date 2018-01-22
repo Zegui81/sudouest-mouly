@@ -1,6 +1,4 @@
 <?php
-    include 'divers.bd.php';
-
     /* Ajoute ou met à jour la quantite dans le panier pour un produit à un utilisateur */
     function addProduitPanier($pseudo, $idProduit, $quantite) {
         $cnx = openBD(); // Connexion à la base de données
@@ -46,5 +44,16 @@
         closeBD($cnx);
         return $aRetouner;
     }
+    
+    function getNbArticleForUser($pseudo) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $requete = $cnx->prepare("SELECT count(*) FROM panier WHERE utilisateur = :pseudo");
+        $requete->bindParam(':pseudo', $pseudo);
+        $requete->execute();
+        $donnees = $requete->fetch();
 
+        closeBD($cnx);
+        return $donnees[0];
+    }
 ?>

@@ -1,8 +1,9 @@
 <?php session_start();
-	include 'vue/divers.vue.php';
-	include 'bd/divers.bd.php';
 	include 'bd/categorie.bd.php';
+	include 'bd/divers.bd.php';
+	include 'bd/panier.bd.php';
 	include 'vue/categorie.vue.php';
+	include 'vue/divers.vue.php';
 ?>
 <!DOCTYPE html>
 <html>

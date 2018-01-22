@@ -1,7 +1,9 @@
 <?php session_start();
+    include 'bd/divers.bd.php';
+    include 'bd/produit.bd.php';
+    include 'bd/panier.bd.php';
 	include 'vue/divers.vue.php';
 	include 'vue/produit.vue.php';
-	include 'bd/produit.bd.php';
 	if (!isset($_GET['id'])) {
 	    // Aucun identifiant de produit passé en argument
 	    header('Location: index.php');

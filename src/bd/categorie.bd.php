@@ -1,5 +1,4 @@
 <?php
-
 	/* Récupère toutes les catégories disponibles */
 	function getListeCategorie() {
 		$cnx = openBD(); // Connexion à la base de données
@@ -24,5 +23,4 @@
 		closeBD($cnx);
 		return $aRetouner;
 	}
-
 ?>

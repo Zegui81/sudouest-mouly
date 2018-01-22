@@ -1,10 +1,7 @@
 <?php
-    include 'divers.bd.php';    
-
     /* Teste si l'email passé en argument appartient à un compte */
     function existMail($mail) {
-        // Connexion à la base de données
-        $cnx = openBD();
+        $cnx = openBD(); // Connexion à la base de données
             
         $requete = $cnx->prepare("SELECT * FROM utilisateur WHERE mail = :mail");
         $requete->bindValue('mail', $mail, PDO::PARAM_INT);
@@ -17,8 +14,7 @@
     
     /* Teste si le pseudo passé en argument appartient à un compte */
     function existPseudo($pseudo) {
-        // Connexion à la base de données
-        $cnx = openBD();
+        $cnx = openBD(); // Connexion à la base de données
         
         $requete = $cnx->prepare("SELECT * FROM utilisateur WHERE pseudo = :pseudo");
         $requete->bindValue('pseudo', $pseudo, PDO::PARAM_INT);
@@ -36,8 +32,7 @@
      * 
      */ 
     function connexion($pseudo, $mdp) {
-        // Connexion à la base de données
-        $cnx = openBD();
+        $cnx = openBD(); // Connexion à la base de données
         
         $requete = $cnx->prepare("SELECT pseudo, mdp, role FROM utilisateur WHERE pseudo = :pseudo");
         $requete->bindValue('pseudo', $pseudo, PDO::PARAM_INT);

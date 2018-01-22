@@ -1,6 +1,4 @@
 <?php
-    include 'bd/divers.bd.php';
-
     /* Récupère toutes les catégories disponibles */
     function getListeProduitByCategorie($categorie) {
         $cnx = openBD(); // Connexion à la base de données

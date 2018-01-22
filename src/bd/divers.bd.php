@@ -1,5 +1,4 @@
 <?php
-
     /* Récupère les informations de connexion dans le config.ini */
     function getConfigBD($argument_config) {
         $tabConfig = parse_ini_file("config.ini");
@@ -34,5 +33,4 @@
         closeBD($cnx);
         return $aRetouner;
     }
-
 ?>

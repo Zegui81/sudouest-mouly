@@ -1,5 +1,4 @@
 <?php
-
     /* Ajoute la partie head de la page chargée */
     function includeHead() {
         $html = '<title>Mon bon terroir</title>';
@@ -51,7 +50,9 @@
             $html .= '<a><i class="fa fa-wrench" aria-hidden="true"></i>Administrer</a>';
             $html .= '<a href="action/doDeconnexion.php" class="marge-lien"><i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter</a>';
         } else if ($session) { // SESSION UTILISATEUR
-            $html .= '<a><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mon panier</a>';
+            $html .= '<a href="panier.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mon panier : ';
+            $html .= getNbArticleForUser($_SESSION['pseudo']).' article(s)';
+            $html .= '</a>';
             $html .= '<a href="action/doDeconnexion.php" class="marge-lien"><i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter</a>';
         } else { // PAS DE SESSION
             $html .= '<a onclick="openPopupConnexion()"><i class="fa fa-sign-in" aria-hidden="true"></i>Se connecter</a>';
@@ -85,5 +86,4 @@
     function displayScrollerDetailProduit() {
         echo '<a href="#header"><span id="scroller"></span></a><footer class="remplissage"></footer>';
     }
-    
 ?>

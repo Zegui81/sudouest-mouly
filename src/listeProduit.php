@@ -1,5 +1,7 @@
 <?php session_start();
+    include 'bd/divers.bd.php';
 	include 'bd/produit.bd.php';
+	include 'bd/panier.bd.php';
 	include 'vue/divers.vue.php';
 	include 'vue/produit.vue.php';
 ?>
