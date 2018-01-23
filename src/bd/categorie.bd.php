@@ -23,4 +23,17 @@
 		closeBD($cnx);
 		return $aRetouner;
 	}
+	
+	/* Vérifie si une catégorie existe */
+	function isCategorie($aTester) {
+	    $cnx = openBD(); // Connexion à la base de données
+	    
+	    $requete = $cnx->prepare("SELECT count(*) FROM categorie WHERE code = :code");
+	    $requete->bindParam(':code', $aTester);
+	    $requete->execute();
+	    $donnees = $requete->fetch();
+	    
+	    closeBD($cnx);
+	    return $donnees[0] == 1;
+	}
 ?>

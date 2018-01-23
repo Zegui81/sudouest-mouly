@@ -10,15 +10,23 @@
 	<head><?php includeHead(); ?></head>
 	<body>	
 		<?php displayMenu();
-    		
+		
+    		$listeProduit = null;
     		if (isset($_GET['categorie'])){
     		    $categorie = $_GET['categorie'];
+    		    // Contrôle de l'existance de la catégorie
+    		    if (isCategorie($categorie)) {
+    		        $listeProduit = getListeProduitByCategorie($categorie);
+    		    }
+    		} else if (isset($_GET['search'])){
+    		    $search = $_GET['search'];
+    		    $listeProduit = getListeProduitBySearch($search);
     		} else {
     		    header('Location: index.php');
     		}
     		
     		// Contenu de la liste
-    		displayListeProduit(getListeProduitByCategorie($categorie));
+    		displayListeProduit($listeProduit);
     		
     		displayScroller(); // Scroller pour remonter
 		?>

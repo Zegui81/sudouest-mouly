@@ -2,8 +2,10 @@
 	include 'bd/categorie.bd.php';
 	include 'bd/divers.bd.php';
 	include 'bd/panier.bd.php';
+	include 'bd/produit.bd.php';
 	include 'vue/categorie.vue.php';
 	include 'vue/divers.vue.php';
+	include 'vue/produit.vue.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,6 +18,10 @@
 		  
 		  // Catégories
 		  displayListeCategorie(getListeCategorie());
+		  
+		  // Produits phares
+		  displayListeProduitPhare(getListeProduitPhare());
+		  
 		  
 		  displayScroller(); // Scroller pour remonter
 		?>

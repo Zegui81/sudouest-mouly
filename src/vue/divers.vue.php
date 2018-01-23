@@ -8,6 +8,7 @@
         $html .= '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">';
         $html .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
         $html .= '<script src="js/scroller.js"></script>';
+        $html .= '<script src="js/search.js"></script>';
         
         if (!isset($_SESSION['pseudo'])) {
             // Aucune session, import de la popup de connexion
@@ -43,7 +44,7 @@
         $html .= '<div class="item-menu btn"><a href="index.php">Accueil</a></div>';
         $html .= '<div class="item-menu btn">Produits</div>';
         $html .= '<div class="item-menu btn">Nous contacter</div>';
-        $html .= '<input type="search" placeholder="Recherchez un produit" class="rechercher">';
+        $html .= '<input id="search" onkeypress="return keyPressOnSearch(event)" type="search" placeholder="Recherchez un produit" class="rechercher">';
         $html .= '<div class="compte">';
         
         if ($session && $admin) { // SESSION ADMINISTRATEUR

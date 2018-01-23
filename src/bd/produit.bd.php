@@ -88,4 +88,58 @@
         closeBD($cnx);
         return $aRetouner;
     }
+    
+    // Récupère les produits phares
+    function getListeProduitPhare() {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $rqt = 'SELECT idProduit, nom, prix, stock, categorie FROM produit '
+                .'WHERE idProduit ORDER BY prix';
+        $requete = $cnx->prepare($rqt);
+        $requete->setFetchMode(PDO::FETCH_OBJ);
+        
+        $aRetouner = array();
+        if ($requete->execute()) {
+            $i = 0;
+            // On prend 4 produits maximum
+            while(($row = $requete->fetch()) && $i < 4) {
+                $aRetouner[$i] = array();
+                $aRetouner[$i][0] = $row->idProduit;
+                $aRetouner[$i][1] = $row->nom;
+                $aRetouner[$i][2] = $row->prix;
+                $i++;
+            }
+            $requete->closeCursor();
+        }
+        
+        closeBD($cnx);
+        return $aRetouner;
+    }
+    
+    /* Recherche les produits selon la chaine aChercher */
+    function getListeProduitBySearch($aChercher) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $rqt = "SELECT idProduit, nom, description FROM produit WHERE LOWER(nom) LIKE LOWER(:search)";
+        $requete = $cnx->prepare($rqt);
+        $requete->bindValue(':search', '%'.$aChercher.'%');
+        $requete->setFetchMode(PDO::FETCH_OBJ);
+        
+        $aRetouner = array();
+        if ($requete->execute()) {
+            $i = 0;
+            // On prend 4 produits maximum
+            while ($row = $requete->fetch()) {
+                $aRetouner[$i] = array();
+                $aRetouner[$i][0] = $row->idProduit;
+                $aRetouner[$i][1] = $row->nom;
+                $aRetouner[$i][2] = $row->description;
+                $i ++;
+            }
+            $requete->closeCursor();
+        }
+        
+        closeBD($cnx);
+        return $aRetouner;
+    }
 ?>
