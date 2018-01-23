@@ -3,5 +3,6 @@
         session_unset($_SESSION["pseudo"]);
         session_unset($_SESSION["statut"]);
     }
-    header('Location: ../index.php');
+    // Retour à la page appelante
+    header('Location: '.$_SERVER['HTTP_REFERER']);
 ?>
