@@ -25,6 +25,11 @@
             $html .= '<script src="js/ajouterAuPanier.js"></script>';
         }
         
+        if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
+            // Import du js associé à l'administration
+            $html .= '<script src="js/administration.js"></script>';
+        }
+        
         echo $html;
     }
 

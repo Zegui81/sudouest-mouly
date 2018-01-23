@@ -36,4 +36,34 @@
 	    closeBD($cnx);
 	    return $donnees[0] == 1;
 	}
+	
+	/* Contrôle si la modification du code d'une catégorie est possible */
+	function controlCodeForUpdate($ancien, $nouveau) {
+	    $cnx = openBD(); // Connexion à la base de données
+	    
+	    $requete = $cnx->prepare("SELECT count(*) FROM categorie WHERE code = :ancien AND code = :nouveau");
+	    $requete->bindParam(':ancien', $ancien);
+	    $requete->bindParam(':nouveau', $nouveau);
+	    $requete->execute();
+	    $donnees = $requete->fetch();
+	    
+	    closeBD($cnx);
+	    return $donnees[0] == 1;
+	}
+	
+	/* Met à jour une catégorie */
+	function updateCategorie($oldCode, $newCode, $nom) {
+	    $cnx = openBD(); // Connexion à la base de données
+	    
+	    $stmt = $cnx->prepare("UPDATE categorie SET code = :newCode, nom = :nom "
+	        ."WHERE code = :oldCode");
+	    
+	    $stmt->bindParam(':oldCode', $oldCode);
+	    $stmt->bindParam(':newCode', $newCode);
+	    $stmt->bindParam(':nom', $nom);
+	    
+	    $stmt->execute();
+	    
+	    closeBD($cnx);  
+	}
 ?>
