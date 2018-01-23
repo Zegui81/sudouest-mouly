@@ -775,3 +775,34 @@ span.input-error {
 .btn-admin-ajout i{
 	margin-right:10px;
 }
+
+.admin-btn-menu{
+	height:40px;
+	line-height:40px;
+	display:inline-block;
+	font-family: Open Sans;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 600;
+	color:white;
+	background-color: RGB(50, 50, 50);
+	border: 1px solid RGB(50, 50, 50);
+	transition:0.2s;
+	width:30%;
+	text-align:center;
+	margin:10px;
+	cursor:pointer;
+}
+
+.admin-btn-menu:hover{
+	background-color: RGB(25, 25, 25);	
+}
+
+.conteneur-center{
+	width:100%;
+	text-align:center;
+	margin-top:50px;
+	margin-bototm:50px;	
+}
+}
