@@ -53,7 +53,7 @@
         $html .= '<div class="compte">';
         
         if ($session && $admin) { // SESSION ADMINISTRATEUR
-            $html .= '<a><i class="fa fa-wrench" aria-hidden="true"></i>Administrer</a>';
+            $html .= '<a href="adminMenu.php"><i class="fa fa-wrench" aria-hidden="true"></i>Administrer</a>';
             $html .= '<a href="action/doDeconnexion.php" class="marge-lien"><i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter</a>';
         } else if ($session) { // SESSION UTILISATEUR
             $html .= '<a href="panier.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mon panier : ';

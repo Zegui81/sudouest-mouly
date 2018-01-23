@@ -1,7 +1,7 @@
 <?php session_start();
     include 'vue/divers.vue.php';
-    if (isset($_SESSION['pseudo'])) {
-        // Quelqu'un est connecté, on empêche l'accès à cette page
+    if (!(isset($_SESSION['statut']) && $_SESSION['statut'] == 1)) {
+        // Si un administrateur n'est pas connecté, on n'autorise pas l'accès à la page
         header('Location: index.php');
     }
 ?>
@@ -11,7 +11,7 @@
 	<body>
 		<?php displayMenu();
 		    
-		   	require 'adminMenu.html';
+		   	require 'form/adminMenu.html';
 		   	
 		   	displayScroller(); // Scroller pour remonter
 		?>
