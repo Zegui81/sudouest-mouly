@@ -645,6 +645,10 @@ footer {
 	background-color: RGB(25, 25, 25);
 }
 
+.btn-supprimer:hover {
+	background-color: RGB(25, 25, 25);
+}
+
 .legende-categorie {
 	width: 500px;
 	height: 50px;
@@ -747,16 +751,27 @@ span.input-error {
 }
 
 .btn-admin-ajout{
+	cursor:pointer;	
 	width:100%;
 	height:40px;
 	line-height:40px;
 	text-align:center;
 	display:block;
 	background-color:RGB(150,255,150);
-	
+	border:1px solid RGB(50,55,50);	
+	color:RGB(50,55,50);
 	font-family: Open Sans;
-	font-size: 14px;
+	font-size: 20px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 300;
+	font-weight: 600;
+	transition:0.2s;
+}
+
+.btn-admin-ajout:hover{
+	background-color:RGB(100,205,100);
+}
+
+.btn-admin-ajout i{
+	margin-right:10px;
 }
