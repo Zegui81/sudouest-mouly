@@ -45,23 +45,34 @@
         $html .= '<div class="image-produit">';
         $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
         
-        $html .= '<figcaption><img src="images/utilitaire/overPromo.png" class="overlayEtatArticle"></figcaption>';
+        if ($produit[4] == 0) { // Stock vide
+            $html .= '<figcaption><img src="images/utilitaire/overStock.png" class="overlayEtatArticle"></figcaption>';
+        } else if ($produit[6] > 0) { // Promotion
+            $html .= '<figcaption><img src="images/utilitaire/overPromo.png" class="overlayEtatArticle"></figcaption>';
+        }
         
         $html .= '</div>';
         $html .= '<div class="description-produit">';
         $html .= '<h2>'.$produit[1].'</h2>';
         $html .= '<span>'.$produit[2].'</span>';
         $html .= '</div>';
-        $html .= '<a onclick="verificationConnexion(';
-        $html .= (isset($_SESSION['pseudo']) ? ('\''.$_SESSION['pseudo'].'\'') : 'null').',';
-        $html .= $produit[0];
-        $html .= ')"><span class="btn-ajout">';
-        $html .= '<i class="fa fa-shopping-basket" aria-hidden="true"></i>Ajouter au panier';
-        $html .= '</span></a>';
+       
         
-        $html .= '<div class="btn-prix">'.number_format($produit[3], 2, ',', ' ').' €</div>';
+        if ($produit[4] != 0) { // Stock non vide
+            $html .= '<a onclick="verificationConnexion(';
+            $html .= (isset($_SESSION['pseudo']) ? ('\''.$_SESSION['pseudo'].'\'') : 'null').',';
+            $html .= $produit[0];
+            $html .= ')"><span class="btn-ajout">';
+            $html .= '<i class="fa fa-shopping-basket" aria-hidden="true"></i>Ajouter au panier';
+            $html .= '</span></a>';
+        }
         
-        $html .= '<div class="btn-prix ancienPrix">'.number_format($produit[3], 2, ',', ' ').' €</div>';
+        $html .= '<div class="btn-prix">'.number_format($produit[3] * (1 - $produit[6]), 2, ',', ' ').' €</div>';
+        
+        if ($produit[6] > 0) { // Promotion
+            $html .= '<div class="btn-prix ancienPrix">'.number_format($produit[3], 2, ',', ' ').' €</div>';
+        }
+        
         $html .= '<div class="btn-qtt-cbx">';
         $html .= '<select id="quantite">';
         
@@ -92,7 +103,16 @@
             $html .= '<a href="detailProduit.php?id='.$produit[0].'"><span class="produit-simili">';       
             $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
             $html .= '<h2>'.$produit[1].'</h2>';
-            $html .= '<h3  class="ancienPrixSimili">'.number_format($produit[2], 2, ',', ' ').' €</h3><h3>'.number_format($produit[2], 2, ',', ' ').' €</h3>';
+            
+   
+
+            $html .= '<h3>'.number_format($produit[2] * (1 - $produit[3]), 2, ',', ' ').' €</h3>';
+            if ($produit[3] != 0) { // Promotion
+                $html .= '<h3  class="ancienPrixSimili">'.number_format($produit[2], 2, ',', ' ').' €</h3>';
+            } else {
+                $html .= '<h3>&nbsp;</h3>';
+            }
+            
             $html .= '</span></a>';
         }
         
