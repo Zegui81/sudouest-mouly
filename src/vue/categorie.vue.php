@@ -26,6 +26,8 @@
         $html = '<div class="white">';
         $html .= '<div class="produit" id="listeCategorie">';
         $html .= '<h1 class="page-produit no-merge">Gestion des catégories</h1>';
+        
+        $html .= '<span class="error-form-admin">Erreur : test<ul><li>a</li><li>b</li></ul></span>';
 
         foreach ($listeCategorie as $categorie) {
             $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return validateEditCategorie(\''.$categorie[0].'\')" action="action/doMAJCategorie.php?edit='.$categorie[0].'">';
