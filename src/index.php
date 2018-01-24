@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 	<head><?php includeHead(); ?></head>
-	<body onload="document.getElementById('slider').style.height = (window.innerHeight - 110) + 'px';">
+	<body onload="document.getElementById('slider').style.height = (window.innerHeight - 125) + 'px';">
 		<?php displayMenu();
 		
 		  displaySliderAccueil();
@@ -21,7 +21,6 @@
 		  
 		  // Produits phares
 		  displayListeProduitPhare(getListeProduitPhare());
-		  
 		  
 		  displayScroller(); // Scroller pour remonter
 		?>

@@ -46,9 +46,7 @@
             
         $html = '<header id="header">';
         $html .= '<div class="menu">';
-        $html .= '<div class="item-menu btn"><a href="index.php">Accueil</a></div>';
-        $html .= '<div class="item-menu btn">Produits</div>';
-        $html .= '<div class="item-menu btn">Nous contacter</div>';
+        $html .= '<a href="index.php"><img class="logo-header" src="images/logoGlobal.png"></a>';
         $html .= '<input id="search" onkeypress="return keyPressOnSearch(event)" type="search" placeholder="Recherchez un produit" class="rechercher">';
         $html .= '<div class="compte">';
         
@@ -72,7 +70,11 @@
     }
         
     function displaySliderAccueil() {
-        echo '<div class="slider" id="slider"><img src="images/slider/terroir1.jpg" alt="Terroir"></div>';
+        echo '<div class="slider" id="slider">';
+        echo '<img src="images/slider/terroir1.jpg" alt="Terroir">';
+        echo '<img src="images/slider/terroir2.jpg" alt="Terroir">';
+        echo '<img src="images/slider/terroir3.jpg" alt="Terroir">';
+        echo '</div>';
     }
 
     /* Affiche la description sur l'écran d'accueil */
