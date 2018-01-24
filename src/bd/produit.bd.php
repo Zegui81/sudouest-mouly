@@ -29,7 +29,7 @@
     function getProduitById($idProduit) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = "SELECT idProduit, nom, description, prix, stock, categorie FROM produit WHERE idProduit = ?";
+        $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE idProduit = ?";
         $requete = $cnx->prepare($rqt);
         $requete->bindValue(1, $idProduit);
         $requete->setFetchMode(PDO::FETCH_OBJ);
@@ -44,6 +44,7 @@
                 $produit[3] = $row->prix;
                 $produit[4] = $row->stock;
                 $produit[5] = $row->categorie;
+                $produit[6] = $row->promotion;
                 $i++;
             }
         }
@@ -62,7 +63,7 @@
     function getListeProduitimilaire($categorie, $idAExclure) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = 'SELECT idProduit, nom, prix, stock, categorie FROM produit '
+        $rqt = 'SELECT idProduit, nom, prix, stock, promotion, categorie FROM produit '
                 .'WHERE categorie = :categorie '
                 .'AND idProduit <> :idProduit '
                 .'ORDER BY stock';
@@ -80,6 +81,7 @@
                 $aRetouner[$i][0] = $row->idProduit;
                 $aRetouner[$i][1] = $row->nom;
                 $aRetouner[$i][2] = $row->prix;
+                $aRetouner[$i][3] = $row->promotion;
                 $i++;
             }
             $requete->closeCursor();
