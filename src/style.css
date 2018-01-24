@@ -46,11 +46,17 @@ header {
 	position: relative;
 }
 
+.logo-header{
+	height:125px;
+	margin:0 auto;
+}
+
 header .menu {
-	width: 1500px;
+	min-width: 500px;
+    max-width: 1084px;
 	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	text-align: center;
+	height:125px;
 }
 
 header .menu .btn {
@@ -65,23 +71,17 @@ header .menu .btn {
 
 header .menu .item-menu {
 	display: inline-block;
-	width: 250px;
 	color: white;
-	margin-left: 10px;
-	margin-right: 10px;
-	height: 70px;
-	float: left;
 }
 
 header .menu .compte {
 	display: inline-block;
 	width: 250px;
 	color: white;
-	margin-left: 10px;
-	margin-right: 10px;
 	font-size: 18px;
 	line-height: 14px;
-	height: 70px;
+	float: right;
+	margin-top :25px;
 }
 
 header .menu .compte a {
@@ -128,11 +128,8 @@ header .menu .rechercher {
 	border: 2px solid RGBA(255, 255, 255, 0.4);
 	border-radius: 15px;
 	padding-left: 10px;
-	margin-left: 50px;
-	margin-right: 50px;
-	margin-bottom: 15px;
-	margin-top: 15px;
-	float: left;
+	float:left;
+	margin-top:43px;
 }
 
 header .menu .rechercher:active {
@@ -195,6 +192,12 @@ footer {
 
 .slider img {
 	width: 100%;
+	display:inline-block;
+	transition:0.5s;
+}
+
+.slider img:hover{
+	margin-top:-849px; /* <- hauteur de l'image générique */
 }
 
 .categorie img {
