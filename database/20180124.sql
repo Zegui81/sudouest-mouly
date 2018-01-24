@@ -110,7 +110,7 @@ CREATE TABLE `produit` (
   `promotion` float NOT NULL,
   `stock` int(4) NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
-  `categorie` varchar(20) COLLATE utf8_bin NOT NULL,
+  `categorie` varchar(20) COLLATE utf8_bin,
   `etat` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table des produits';
 
@@ -271,7 +271,7 @@ ALTER TABLE `panier`
 -- Contraintes pour la table `produit`
 --
 ALTER TABLE `produit`
-  ADD CONSTRAINT `fk_produit_categorie` FOREIGN KEY (`categorie`) REFERENCES `categorie` (`code`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_produit_categorie` FOREIGN KEY (`categorie`) REFERENCES `categorie` (`code`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
