@@ -44,6 +44,9 @@
         $html .= '<div class="conteneur-produit">';
         $html .= '<div class="image-produit">';
         $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
+        
+        $html .= '<figcaption><img src="images/utilitaire/overPromo.png" class="overlayEtatArticle"></figcaption>';
+        
         $html .= '</div>';
         $html .= '<div class="description-produit">';
         $html .= '<h2>'.$produit[1].'</h2>';
@@ -55,7 +58,10 @@
         $html .= ')"><span class="btn-ajout">';
         $html .= '<i class="fa fa-shopping-basket" aria-hidden="true"></i>Ajouter au panier';
         $html .= '</span></a>';
+        
         $html .= '<div class="btn-prix">'.number_format($produit[3], 2, ',', ' ').' €</div>';
+        
+        $html .= '<div class="btn-prix ancienPrix">'.number_format($produit[3], 2, ',', ' ').' €</div>';
         $html .= '<div class="btn-qtt-cbx">';
         $html .= '<select id="quantite">';
         
@@ -86,7 +92,7 @@
             $html .= '<a href="detailProduit.php?id='.$produit[0].'"><span class="produit-simili">';       
             $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
             $html .= '<h2>'.$produit[1].'</h2>';
-            $html .= '<h3>'.number_format($produit[2], 2, ',', ' ').' €</h3>';
+            $html .= '<h3  class="ancienPrixSimili">'.number_format($produit[2], 2, ',', ' ').' €</h3><h3>'.number_format($produit[2], 2, ',', ' ').' €</h3>';
             $html .= '</span></a>';
         }
         

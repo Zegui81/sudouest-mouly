@@ -247,12 +247,13 @@ footer {
 	height: 300px;
 	width: 300px;
 	float: left;
+	margin-right: 15px;
 }
 
 .description-produit {
 	display: inline-block;
 	float: left;
-	width: 784px;
+	width: 769px;
 }
 
 .description-produit span {
@@ -264,6 +265,7 @@ footer {
 	line-height: 26.4px;
 	margin-top: 15px;
 	text-align: justify;
+	display: inline-block;
 }
 
 .page-produit {
@@ -692,8 +694,8 @@ span.input-error {
 .admin-item-gauche span {
 	display: inline-block;
 	width: 10%;
-	float:left;
-	margin-left:5%;
+	float: left;
+	margin-left: 5%;
 }
 
 .admin-item-gauche input {
@@ -719,7 +721,7 @@ span.input-error {
 .admin-item-droit span {
 	display: inline-block;
 	width: 10%;
-	float:left;
+	float: left;
 }
 
 .admin-item-droit input {
@@ -732,77 +734,93 @@ span.input-error {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 300;
-	height:40px;
+	height: 40px;
 	line-height: 40px;
 	color: RGB(45, 45, 45);
 }
 
-.btn-admin{
-	margin-top:0px !important;
+.btn-admin {
+	margin-top: 0px !important;
 }
 
-.item-admin{
-	border:1px solid RGB(175,175,175);
-	margin-top:20px;
-	margin-bottom:20px !important;
-	padding-bottom:10px !important;
-	padding-top:10px !important;
-	background-color:RGB(240,240,240);
+.item-admin {
+	border: 1px solid RGB(175, 175, 175);
+	margin-top: 20px;
+	margin-bottom: 20px !important;
+	padding-bottom: 10px !important;
+	padding-top: 10px !important;
+	background-color: RGB(240, 240, 240);
 }
 
-.btn-admin-ajout{
-	cursor:pointer;	
-	width:100%;
-	height:40px;
-	line-height:40px;
-	text-align:center;
-	display:block;
-	background-color:RGB(150,255,150);
-	border:1px solid RGB(50,55,50);	
-	color:RGB(50,55,50);
+.btn-admin-ajout {
+	cursor: pointer;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	display: block;
+	background-color: RGB(150, 255, 150);
+	border: 1px solid RGB(50, 55, 50);
+	color: RGB(50, 55, 50);
 	font-family: Open Sans;
 	font-size: 20px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 600;
-	transition:0.2s;
+	transition: 0.2s;
 }
 
-.btn-admin-ajout:hover{
-	background-color:RGB(100,205,100);
+.btn-admin-ajout:hover {
+	background-color: RGB(100, 205, 100);
 }
 
-.btn-admin-ajout i{
-	margin-right:10px;
+.btn-admin-ajout i {
+	margin-right: 10px;
 }
 
-.admin-btn-menu{
-	height:40px;
-	line-height:40px;
-	display:inline-block;
+.admin-btn-menu {
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
 	font-family: Open Sans;
 	font-size: 20px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 600;
-	color:white;
+	color: white;
 	background-color: RGB(50, 50, 50);
 	border: 1px solid RGB(50, 50, 50);
-	transition:0.2s;
-	width:30%;
-	text-align:center;
-	margin:10px;
-	cursor:pointer;
+	transition: 0.2s;
+	width: 30%;
+	text-align: center;
+	margin: 10px;
+	cursor: pointer;
 }
 
-.admin-btn-menu:hover{
-	background-color: RGB(25, 25, 25);	
+.admin-btn-menu:hover {
+	background-color: RGB(25, 25, 25);
 }
 
-.conteneur-center{
-	width:100%;
-	text-align:center;
-	margin-top:50px;
-	margin-bototm:50px;	
+.conteneur-center {
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+	margin-bototm: 50px;
 }
+
+.overlayEtatArticle {
+	bottom: 300px;
+	position: relative;
+}
+
+.ancienPrix{
+	border: 1px solid RGB(255, 125, 125);
+	color: RGB(255, 125, 125);
+	text-decoration: line-through;
+	background-color: RGBA(255, 125, 125, 0.25);
+}
+
+.ancienPrixSimili{
+	color: RGB(255, 125, 125);
+	text-decoration: line-through;
 }
