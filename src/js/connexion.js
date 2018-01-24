@@ -8,12 +8,16 @@ function closePopupConnexion() {
 }
 
 function validateConnexion() {
+	// Réinitialisation du formulaire
+	$('#connexion-error').empty();
+	
 	var ok = true;
 	var statut = -2;
 	var pseudo = $('#pseudo').val();
 	var mdp = $('#mdp').val();
-	
+	var erreur = '';
 	if (pseudo === '' || mdp === '') {
+		erreur = 'Vous devez renseigner les deux champs.';
 		ok = false;
 	} else {
 		// Contrôle de la validité
@@ -28,11 +32,20 @@ function validateConnexion() {
     		},
     		complete: function(resultat) {
     			var json = JSON.parse(resultat.responseJSON);
-    			if (json.statut < 0) {
-    				ok = false; // Identification ratée
+    			if (json.statut == -2) {
+    				erreur = 'Le pseudo saisi n\'existe pas.';
+    				ok = false;
+    			} else if (json.statut == -1) {
+    				erreur = 'Le mot de passe pour son compte est incorrect.';
+    				ok = false;
     			}
     		}
     	});
 	}
+	
+    if (!ok) {
+    	$('#connexion-error').addClass('error-form-popup');
+    	$('#connexion-error').append(erreur);
+    }
 	return ok;
 }

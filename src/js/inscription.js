@@ -2,6 +2,7 @@
 function validateInscription() {
 	// Réinitialisation du formulaire
 	$('.remove-error').removeClass('input-error');
+	$('#inscription-error').empty();
 	
 	var formulaire = document.forms["inscription"];
     var mail = formulaire["mail"].value;
@@ -95,6 +96,17 @@ function validateInscription() {
     	listeErreur.push('Les deux champs du mot de passe ne correspondent pas.');
     	ok = false;
     	alert('MDP différents');
+    }
+    
+    // Affichage de la liste
+    if (!ok) {
+    	$('#inscription-error').addClass('error-form');
+    	$('#inscription-error').append('Impossible de valider le formulaire car : ');
+    	$('#inscription-error').append('<ul>');
+    	listeErreur.forEach(function(element) {
+    		$('#inscription-error').append('<li>' + element + '</li>');
+    	});
+    	$('#inscription-error').append('</ul>');
     }
     
     return ok;

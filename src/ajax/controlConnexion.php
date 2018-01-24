@@ -11,5 +11,5 @@
     $return .= connexion($pseudo, $mdp);
     $return .= '}';
 
-    echo $return;
+    echo json_encode($return);
 ?>
