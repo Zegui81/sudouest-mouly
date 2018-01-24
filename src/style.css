@@ -188,6 +188,7 @@ footer {
 
 .slider {
 	overflow: hidden;
+	position: relative;
 }
 
 .slider img {
@@ -196,8 +197,13 @@ footer {
 	transition:0.5s;
 }
 
-.slider img:hover{
-	margin-top:-849px; /* <- hauteur de l'image générique */
+/* .slider img:hover{
+	position: relative;
+} */
+
+.inner-slider {
+	position: absolute;
+	top: 0px;
 }
 
 .categorie img {

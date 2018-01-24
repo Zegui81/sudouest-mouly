@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 	<head><?php includeHead(); ?></head>
-	<body onload="document.getElementById('slider').style.height = (window.innerHeight - 125) + 'px';">
+	<body onload="document.getElementById('slider').style.height = (window.innerHeight - 125) + 'px'; setInterval(function(){slide(3)},3000);">
 		<?php displayMenu();
 		
 		  displaySliderAccueil();

@@ -10,6 +10,11 @@
         $html .= '<script src="js/scroller.js"></script>';
         $html .= '<script src="js/search.js"></script>';
         
+        if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+            // On se situe sur la page de l'inscription, import du js associé
+            $html .= '<script src="js/slider.js"></script>';
+        }
+        
         if (!isset($_SESSION['pseudo'])) {
             // Aucune session, import de la popup de connexion
             $html .= '<script src="js/connexion.js"></script>';
@@ -47,7 +52,7 @@
         $html = '<header id="header">';
         $html .= '<div class="menu">';
         $html .= '<a href="index.php"><img class="logo-header" src="images/logoGlobal.png"></a>';
-        $html .= '<input id="search" onkeypress="return keyPressOnSearch(event)" type="search" placeholder="Recherchez un produit" class="rechercher">';
+        $html .= '<input id="search" onkeypress="return keyPressOnSearch(event)" type="search" placeholder="Rechercher un produit..." class="rechercher">';
         $html .= '<div class="compte">';
         
         if ($session && $admin) { // SESSION ADMINISTRATEUR
@@ -71,9 +76,11 @@
         
     function displaySliderAccueil() {
         echo '<div class="slider" id="slider">';
-        echo '<img src="images/slider/terroir1.jpg" alt="Terroir">';
-        echo '<img src="images/slider/terroir2.jpg" alt="Terroir">';
-        echo '<img src="images/slider/terroir3.jpg" alt="Terroir">';
+        echo '<div class="inner-slider" id="slider1">';
+        echo '<img id="a" src="images/slider/terroir1.jpg" alt="Terroir">';
+        echo '<img id="b" src="images/slider/terroir2.jpg" alt="Terroir">';
+        echo '<img id="c" src="images/slider/terroir3.jpg" alt="Terroir">';
+        echo '</div>';
         echo '</div>';
     }
 
@@ -88,10 +95,5 @@
     /* Affiche le bouton permettant de revenir au sommet de la page */
     function displayScroller() {
         echo '<a href="#header"><span id="scroller"></span></a><footer></footer>';
-    }
-    
-    /* Affiche le bouton permettant de revenir au sommet de la page sur la page détail */
-    function displayScrollerDetailProduit() {
-        echo '<a href="#header"><span id="scroller"></span></a><footer class="remplissage"></footer>';
     }
 ?>
