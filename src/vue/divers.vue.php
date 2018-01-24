@@ -72,7 +72,7 @@
     }
         
     function displaySliderAccueil() {
-        echo '<div class="slider" id="slider"><img src="images/font/terroir1.jpg" alt="Terroir"></div>';
+        echo '<div class="slider" id="slider"><img src="images/slider/terroir1.jpg" alt="Terroir"></div>';
     }
 
     /* Affiche la description sur l'écran d'accueil */
