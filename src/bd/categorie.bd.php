@@ -37,18 +37,45 @@
 	    return $donnees[0] == 1;
 	}
 	
+	/* Contrôle si l'insertion d'un code d'une catégorie est possible */
+	function controlCodeForInsert($nouveau) {
+	    $cnx = openBD(); // Connexion à la base de données
+	    
+	    $requete = $cnx->prepare("SELECT count(*) FROM categorie WHERE code = :nouveau");
+	    $requete->bindParam(':nouveau', $nouveau);
+	    $requete->execute();
+	    $donnees = $requete->fetch();
+	    
+	    closeBD($cnx);
+	    return $donnees[0];
+	}
+	
 	/* Contrôle si la modification du code d'une catégorie est possible */
 	function controlCodeForUpdate($ancien, $nouveau) {
 	    $cnx = openBD(); // Connexion à la base de données
 	    
-	    $requete = $cnx->prepare("SELECT count(*) FROM categorie WHERE code = :ancien AND code = :nouveau");
+	    $requete = $cnx->prepare("SELECT COUNT(*) AS total FROM categorie WHERE code <> :ancien AND code = :nouveau");
 	    $requete->bindParam(':ancien', $ancien);
 	    $requete->bindParam(':nouveau', $nouveau);
 	    $requete->execute();
 	    $donnees = $requete->fetch();
 	    
 	    closeBD($cnx);
-	    return $donnees[0] == 1;
+	    return $donnees['total'];
+	}
+	
+	/* Ajoute une catégorie */
+	function addCategorie($code, $nom) {
+	    $cnx = openBD(); // Connexion à la base de données
+	    
+	    $stmt = $cnx->prepare("INSERT INTO categorie (code, nom) VALUES (:code, :nom)");
+	    
+	    $stmt->bindParam(':code', $code);
+	    $stmt->bindParam(':nom', $nom);
+	    
+	    $stmt->execute();
+	    
+	    closeBD($cnx);  
 	}
 	
 	/* Met à jour une catégorie */
@@ -62,6 +89,17 @@
 	    $stmt->bindParam(':newCode', $newCode);
 	    $stmt->bindParam(':nom', $nom);
 	    
+	    $stmt->execute();
+	    
+	    closeBD($cnx);  
+	}
+	
+	/* Supprime une catégorie en entrainant ses produits associés */
+	function removeCategorie($code) {
+	    $cnx = openBD(); // Connexion à la base de données
+	    
+	    $stmt = $cnx->prepare("DELETE FROM categorie WHERE code = :code");
+	    $stmt->bindParam(':code', $code);
 	    $stmt->execute();
 	    
 	    closeBD($cnx);  

@@ -1,4 +1,5 @@
 <?php
+    include '../bd/divers.bd.php';
     include '../bd/utilisateur.bd.php';
     
     $pseudo = $_POST['pseudo'];
@@ -10,5 +11,5 @@
     $return .= connexion($pseudo, $mdp);
     $return .= '}';
 
-    echo json_encode($return);
+    echo $return;
 ?>

@@ -11,6 +11,9 @@
             unlink('../images/categories/'.$oldCode.'.jpg');
             move_uploaded_file($_FILES[$nomImage]['tmp_name'], 
                 '../images/categories/'.$newCode.'.jpg'); // MAJ Image
+        } else {
+            // Aucune image passée, modification du nom de l'image
+            rename('../images/categories/'.$oldCode.'.jpg', '../images/categories/'.$newCode.'.jpg');
         }
     }
     header('Location: ../adminCategorie.php');

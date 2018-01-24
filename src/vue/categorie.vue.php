@@ -24,28 +24,28 @@
     /* Affiche la liste des catégories plus un bouton pour en ajouter */
     function displayAdminCategorie($listeCategorie) {
         $html = '<div class="white">';
-        $html .= '<div class="produit">';
+        $html .= '<div class="produit" id="listeCategorie">';
         $html .= '<h1 class="page-produit no-merge">Gestion des catégories</h1>';
 
         foreach ($listeCategorie as $categorie) {
-            $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return editerCategorie(\''.$categorie[0].'\')" action="action/doMAJCategorie.php?edit='.$categorie[0].'">';
+            $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return validateEditCategorie(\''.$categorie[0].'\')" action="action/doMAJCategorie.php?edit='.$categorie[0].'">';
             $html .= '<div class="admin-item-gauche">';
-            $html .= '<span class="remove-error" id="labelcode">Code :</span>';
+            $html .= '<span class="remove-error" id="labelcode-'.$categorie[0].'">Code :</span>';
             $html .= '<input type="text" name="code" placeholder="code" class="input-inscription remove-error" value="'.$categorie[0].'" id="'.$categorie[0].'-code"><br/>';
-            $html .= '<span class="remove-error" id="labelnom">Nom :</span>';
+            $html .= '<span class="remove-error" id="labelnom-'.$categorie[0].'">Libellé :</span>';
             $html .= '<input type="text" name="nom" placeholder="nom" class="input-inscription remove-error" value="'.$categorie[1].'" id="'.$categorie[0].'-nom"><br/>';
             $html .= '</div>';
             $html .= '<div class="admin-item-droit">';
             $html .= '<span class="remove-error" id="labelImage">Image :</span>';
             $html .= '<input type="file" name="image-'.$categorie[0].'" placeholder="image" class="input-inscription remove-error"><br/>';
             $html .= '<input class="btn-inscription btn-valider btn-admin" type="submit" value="Éditer">';
-            $html .= '<input class="btn-inscription btn-supprimer btn-admin" type="button" value="Supprimer" id="suppr-'.$categorie[0].'">';
+            $html .= '<input onclick="deleteCategorie(\''.$categorie[0].'\')" class="btn-inscription btn-supprimer btn-admin" type="button" value="Supprimer" id="suppr-'.$categorie[0].'">';
             $html .= '</div>';
             $html .= '</form>';
             
         }
-        $html .= '<span class="btn-admin-ajout"><i class="fa fa-plus"></i>Ajouter</span><br>';
         $html .= '</div>';
+        $html .= '<span class="btn-admin-ajout" onclick="addCategorie()"><i class="fa fa-plus"></i>Ajouter</span><br>';
         $html .= '</div>';
         
         echo $html;

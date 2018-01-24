@@ -1,4 +1,5 @@
 <?php
+    include '../bd/divers.bd.php';
     include '../bd/utilisateur.bd.php';
     
     $mail = $_POST['mail'];
