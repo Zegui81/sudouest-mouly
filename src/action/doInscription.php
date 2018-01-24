@@ -1,6 +1,7 @@
 <?php session_start();
-    require '../bd/utilisateur.bd.php';
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include '../bd/divers.bd.php';
+    include '../bd/utilisateur.bd.php';
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         createUtilisateur(
             $_POST['pseudo'],
             $_POST['mail'], 

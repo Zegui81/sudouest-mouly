@@ -28,7 +28,7 @@
         $html .= '<h1 class="page-produit no-merge">Gestion des catégories</h1>';
 
         foreach ($listeCategorie as $categorie) {
-            $html .= '<form class="liste-item-inscription item-admin" name="adminCategorie" method="POST" onsubmit="return editerCategorie(\''.$categorie[0].'\')" action="action/doMAJCategorie.php?edit='.$categorie[0].'">';
+            $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return editerCategorie(\''.$categorie[0].'\')" action="action/doMAJCategorie.php?edit='.$categorie[0].'">';
             $html .= '<div class="admin-item-gauche">';
             $html .= '<span class="remove-error" id="labelcode">Code :</span>';
             $html .= '<input type="text" name="code" placeholder="code" class="input-inscription remove-error" value="'.$categorie[0].'" id="'.$categorie[0].'-code"><br/>';
@@ -37,7 +37,7 @@
             $html .= '</div>';
             $html .= '<div class="admin-item-droit">';
             $html .= '<span class="remove-error" id="labelImage">Image :</span>';
-            $html .= '<input type="file" name="image" placeholder="image" accept=".jpg, .jpeg, .png" class="input-inscription remove-error"><br/>';
+            $html .= '<input type="file" name="image-'.$categorie[0].'" placeholder="image" class="input-inscription remove-error"><br/>';
             $html .= '<input class="btn-inscription btn-valider btn-admin" type="submit" value="Éditer">';
             $html .= '<input class="btn-inscription btn-supprimer btn-admin" type="button" value="Supprimer" id="suppr-'.$categorie[0].'">';
             $html .= '</div>';
