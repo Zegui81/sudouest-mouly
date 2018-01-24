@@ -118,7 +118,7 @@ function removeNewCategorie() {
 
 /* Supprime une catégorie */
 function deleteCategorie(code) {
-	if (confirm('Supprimer la catégorie supprimera également les produits associés. Voulez-vous continuer ?')) {
+	if (confirm('Les produits associés seront détachés de la catégorie mais pas supprimés. Voulez-vous continuer ?')) {
 		window.location.replace('action/doDeleteCategorie.php?code=' + code);
 	}
 }
