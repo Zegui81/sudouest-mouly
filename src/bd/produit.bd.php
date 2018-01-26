@@ -122,9 +122,11 @@
     function getListeProduitBySearch($aChercher) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = "SELECT idProduit, nom, description FROM produit WHERE LOWER(nom) LIKE LOWER(:search)";
+        $rqt = 'SELECT idProduit, nom, description FROM produit WHERE LOWER(nom) LIKE LOWER(:search)'
+            .' OR LOWER(description) LIKE LOWER(:searchDescription)';
         $requete = $cnx->prepare($rqt);
         $requete->bindValue(':search', '%'.$aChercher.'%');
+        $requete->bindValue(':searchDescription', '% '.$aChercher.'%');
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
         $aRetouner = array();

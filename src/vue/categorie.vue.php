@@ -26,7 +26,6 @@
         $html = '<div class="white">';
         $html .= '<div class="produit" id="listeCategorie">';
         $html .= '<h1 class="page-produit no-merge">Gestion des catégories</h1>';
-        
         $html .= '<div id="admin-categorie-error"></div>';
 
         foreach ($listeCategorie as $categorie) {
@@ -44,10 +43,37 @@
             $html .= '<input onclick="deleteCategorie(\''.$categorie[0].'\')" class="btn-inscription btn-supprimer btn-admin" type="button" value="Supprimer" id="suppr-'.$categorie[0].'">';
             $html .= '</div>';
             $html .= '</form>';
-            
         }
+        
         $html .= '</div>';
         $html .= '<div class="produit"><span class="btn-admin-ajout" onclick="addCategorie()"><i class="fa fa-plus"></i>Ajouter</span><br></div>';
+        $html .= '</div>';
+        
+        echo $html;
+    }
+    
+    /* Affiche la liste des catégories dans le menu d'administration des produits */
+    function displayCategorieAdmin($listeCategorie) {
+        $html = '<div class="white">';
+        $html .= '<div class="produit">';
+        $html .= '<h1 class="page-produit no-merge">Administrer les produits</h1>';
+        $html .= '<div class="conteneur-center">';
+        
+        foreach ($listeCategorie as $categorie) {
+            $html .= '<a href="adminListeProduit.php?categorie='.$categorie[0].'">';
+            $html .= '<span class="admin-btn-menu">';
+            $html .= $categorie[1];
+            $html .= '</span></a>';
+        }
+        
+        // Produits sans catégorie
+        $html .= '<a href="adminListeProduit.php?categorie=null">';
+        $html .= '<span class="admin-btn-menu">';
+        $html .= 'Produits non classés';
+        $html .= '</span></a>';
+        
+        $html .= '</div><br>';
+        $html .= '</div>';
         $html .= '</div>';
         
         echo $html;
