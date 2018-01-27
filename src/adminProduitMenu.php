@@ -15,7 +15,7 @@
 		<?php displayMenu();
 		    
     		// Catégories
-    		displayCategorieAdmin(getListeCategorie());
+    		displayListeCategorieAdmin(getListeCategorie());
 		
 		   	displayScroller(); // Scroller pour remonter
 		?>

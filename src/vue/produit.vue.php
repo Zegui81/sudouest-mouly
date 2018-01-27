@@ -123,6 +123,7 @@
         echo $html;
     }
     
+    /* Affiche les produit phares sur la page d'accueil */
     function displayListeProduitPhare($listeProduit) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
@@ -138,6 +139,37 @@
         }
         
         $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
+        
+        echo $html;
+    }
+    
+    /* Affiche la liste des produits sous forme de tableau pour l'administration */
+    function displayListeProduitAdmin($listeProduit) {
+        $html = '<div class="white">';
+        $html .= '<div class="produit">';
+        $html .= '<h1 class="page-produit no-merge">Liste des produits</h1>';
+        $html .= '<div class="conteneur-center">';
+        $html .= '<table class="tab-liste-produit-admin">';
+        $html .= '<tr>';
+        $html .= '<th class="marge-colonne-tab">Nom</th>';
+        $html .= '<th>Prix</th>';
+        $html .= '<th></th>';
+        $html .= '</tr>';
+        
+        foreach ($listeProduit as $produit) {
+            $html .= '<tr>';
+            $html .= '<td  class="marge-colonne-tab">'.$produit[1].'</td>';
+            $html .= '<td>'.number_format($produit[3], 2, ',', ' ').' €</td>';
+            $html .= '<td><span>Modifier</span>';
+            $html .= '<span>Retirer</span></td>';
+            $html .= '</tr>';
+        }
+            
+        $html .= '</table>';
+        $html .= '</div><br>';
+        $html .= '<div class="produit"><span class="btn-admin-ajout" onclick="addCategorie()"><i class="fa fa-plus"></i>Ajouter</span><br></div>';
         $html .= '</div>';
         $html .= '</div>';
         

@@ -53,7 +53,7 @@
     }
     
     /* Affiche la liste des catégories dans le menu d'administration des produits */
-    function displayCategorieAdmin($listeCategorie) {
+    function displayListeCategorieAdmin($listeCategorie) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
         $html .= '<h1 class="page-produit no-merge">Administrer les produits</h1>';
