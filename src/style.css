@@ -878,4 +878,66 @@ span.input-error {
 	padding:10px;
 	margin-top:0px !important;
 }
+
+.tab-liste-produit-admin{
+	font-family: Open Sans;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	width:100%;
+	text-align:left;
+	border-collapse: collapse;
+}
+
+.tab-liste-produit-admin th{
+	font-weight: 600;
+	border-bottom: 1px solid RGB(200, 200, 200);
+	background-color : white;
+}
+
+.tab-liste-produit-admin span{
+	cursor: pointer;
+	width: 40%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	display: block;
+	background-color: RGB(150, 255, 150);
+	border: 1px solid RGB(50, 55, 50);
+	color: white;
+	font-family: Open Sans;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	transition: 0.2s;
+	display: inline-block;
+	margin-left:5%;
+	border: 1px solid RGB(50, 50, 50);
+	transition: 0.2s;
+	background-color: RGB(50, 50, 50);
+}
+
+.tab-liste-produit-admin span:hover{
+	background-color: RGB(25, 25, 25);
+}
+
+.tab-liste-produit-admin tr{
+	height:50px;
+}
+
+.tab-liste-produit-admin td{
+	border-bottom: 1px solid RGB(200, 200, 200);
+}
+
+.tab-liste-produit-admin tr:nth-child(odd){
+	background-color : RGB(230,230,230);
+}
+
+.tab-liste-produit-admin tr:nth-child(even){
+	background-color : RGB(245,245,245);
+}
+
+.marge-colonne-tab {
+	padding-left:15px;
 }
