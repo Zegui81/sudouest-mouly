@@ -941,3 +941,17 @@ span.input-error {
 .marge-colonne-tab {
 	padding-left:15px;
 }
+
+.lbl-admin-produit {
+	text-align:left;
+}
+
+.gestion-produit-admin {
+	height: 160px;
+}
+
+.hauteur-gauche{
+	height:30px !important;
+	line-height:30px !important;
+	margin-bottom: 45px;
+}
