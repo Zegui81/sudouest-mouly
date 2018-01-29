@@ -83,4 +83,29 @@
             
         closeBD($cnx);        
     }
+    
+    /* Permet d'obtenir la liste des utilisateurs */
+    function getListeUtilisateur() {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $requete = $cnx->prepare("SELECT pseudo, mail, role FROM utilisateur");
+        $requete->setFetchMode(PDO::FETCH_OBJ);
+        
+        $aRetouner = array();
+        if ($requete->execute()) {
+            $i = 0;
+            while($row = $requete->fetch()) {
+                $aRetouner[$i] = new Utilisateur();
+                $aRetouner[$i]->setPseudo($row->pseudo);
+                $aRetouner[$i]->setMail($row->mail);
+                $aRetouner[$i]->setRole($row->role);
+                $i++;
+            }
+            $requete->closeCursor();
+        }
+        $requete->execute();
+        
+        closeBD($cnx);     
+        return $aRetouner;
+    }
 ?>

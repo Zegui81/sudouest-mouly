@@ -24,7 +24,7 @@
     		displayProduit($produit);
     		
     		// 5 : catégorie / 0 : id produit à exclure
-    		displayListeProduitSimilaire(getListeProduitimilaire(
+    		displayListeProduitSimilaire(getListeProduitSimilaire(
     		      $produit->getCategorie(), $produit->getIdProduit()));
     		
     		displayScroller();

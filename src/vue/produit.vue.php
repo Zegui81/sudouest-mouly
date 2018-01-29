@@ -10,9 +10,15 @@
         foreach ($listeProduit as $produit) {
             $html .= '<div class="conteneur-produit">';
             $html .= '<div class="image-produit">';
-            $html .= '<img src="images/produits/';
-            $html .= $produit->getIdProduit();
-            $html .= '.jpg"></div>';
+            $html .= '<img src="images/produits/'.$produit->getIdProduit().'.jpg">';
+            
+            if ($produit->getStock() == 0) { // Stock vide
+                $html .= '<figcaption><img src="images/utilitaire/overStock.png" class="overlayEtatArticle"></figcaption>';
+            } else if ($produit->getPromotion() > 0) { // Promotion
+                $html .= '<figcaption><img src="images/utilitaire/overPromo.png" class="overlayEtatArticle"></figcaption>';
+            }
+            
+            $html .= '</div>';
             $html .= '<div class="description-produit"><h2>';
             $html .= $produit->getNom();
             $html .= '</h2>';
@@ -20,12 +26,15 @@
             $html .= $produit->getDescription();
             $html .= '</span>';
             $html .= '</div>';
-            $html .= '<a href="detailProduit.php?id=';
-            $html .= $produit->getIdProduit();
-            $html .= '">';
-            $html .= '<div class="btn-info">';
+            $html .= '<a href="detailProduit.php?id='.$produit->getIdProduit().'"><span class="btn-info">';
             $html .= '<i class="fa fa-info" aria-hidden="true"></i>Détails';
-            $html .= '</div>';
+            $html .= '</span></a>';
+            $html .= '<div class="btn-prix">'.number_format($produit->getPrix() * (1 - $produit->getPromotion()), 2, ',', ' ').' €</div>';
+            
+            if ($produit->getPromotion() > 0) { // Promotion
+                $html .= '<div class="btn-prix ancienPrix">'.number_format($produit->getPrix(), 2, ',', ' ').' €</div>';
+            }
+
             $html .= '</a>';
             $html .= '</div>';
         }

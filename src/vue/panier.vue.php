@@ -15,6 +15,9 @@
             $html .= '<div class="conteneur-produit">';
             $html .= '<div class="image-produit">';
             $html .= '<img src="images/produits/'.$panier->getProduit().'.jpg">';
+            if ($panier->getPromotion() > 0) { // Promotion
+                $html .= '<figcaption><img src="images/utilitaire/overPromo.png" class="overlayEtatArticle"></figcaption>';
+            }
             $html .= '</div>';
             $html .= '<div class="description-produit">';
             $html .= '<h2>'.$panier->getNom().'</h2>';
@@ -27,7 +30,7 @@
             $html .= number_format($totalPanier, 2, ',', ' ').' €';
             $html .= '</div>';
             $html .= '<div class="btn-prix no-border">=</div>';
-            $html .= '<div class="btn-prix">'.number_format($panier->getPrix(), 2, ',', ' ').' €</div>';
+            $html .= '<div class="btn-prix">'.number_format($panier->getPrix() * (1 - $panier->getPromotion()), 2, ',', ' ').' €</div>';
             $html .= '<div class="btn-prix no-border">x</div>';
             $html .= '<div class="btn-prix">'.$panier->getQuantite().'</div>';
             $html .= '<div class="btn-qtt-lbl">';
