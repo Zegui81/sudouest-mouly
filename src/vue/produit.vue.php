@@ -162,7 +162,7 @@
             $html .= '<tr>';
             $html .= '<td  class="marge-colonne-tab">'.$produit[1].'</td>';
             $html .= '<td>'.number_format($produit[3], 2, ',', ' ').' €</td>';
-            $html .= '<td><span>Modifier</span>';
+            $html .= '<td><a href="adminDetailProduit.php?id='.$produit[0].'"><span>Modifier</span></a>';
             $html .= '<span>Retirer</span></td>';
             $html .= '</tr>';
         }

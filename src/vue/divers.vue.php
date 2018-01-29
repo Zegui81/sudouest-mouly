@@ -32,7 +32,12 @@
         
         if (isset($_SESSION['statut']) && $_SESSION['statut'] == 1) {
             // Import du js associé à l'administration
-            $html .= '<script src="js/administration.js"></script>';
+            $html .= '<script src="js/administrationCategorie.js"></script>';
+        }
+        
+        if (basename($_SERVER['PHP_SELF']) == 'adminDetailProduit.php') {
+            // On se situe sur la page de l'inscription, import du js associé
+            $html .= '<script src="js/administrationProduit.js"></script>';
         }
         
         echo $html;
