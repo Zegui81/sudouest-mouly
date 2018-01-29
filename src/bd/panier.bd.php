@@ -18,7 +18,7 @@
     function getListeProduitPanierUtilisateur($pseudo) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = 'SELECT utilisateur, produit, quantite, nom, description, prix '
+        $rqt = 'SELECT utilisateur, produit, quantite, nom, description, prix, promotion '
                 .'FROM panier JOIN produit ON idProduit = produit '
                 .'WHERE utilisateur = :pseudo';
         
@@ -30,12 +30,14 @@
         if ($requete->execute()) {
             $i = 0;
             while ($row = $requete->fetch()) {
-                $aRetouner[$i] = array();
-                $aRetouner[$i][0] = $row->produit;
-                $aRetouner[$i][1] = $row->quantite;
-                $aRetouner[$i][2] = $row->nom;
-                $aRetouner[$i][3] = $row->description;
-                $aRetouner[$i][4] = $row->prix;
+                $aRetouner[$i] = new Panier();
+                $aRetouner[$i]->setUtilisateur($pseudo);
+                $aRetouner[$i]->setProduit($row->produit);
+                $aRetouner[$i]->setQuantite($row->quantite);
+                $aRetouner[$i]->setNom($row->nom);
+                $aRetouner[$i]->setDescription($row->description);
+                $aRetouner[$i]->setPrix($row->prix);
+                $aRetouner[$i]->setPromotion($row->promotion);
                 $i ++;
             }
             $requete->closeCursor();
