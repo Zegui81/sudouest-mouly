@@ -702,7 +702,7 @@ span.input-error {
 
 .admin-item-gauche span {
 	display: inline-block;
-	width: 10%;
+	width: 13%;
 	float: left;
 	margin-left: 5%;
 }
@@ -710,7 +710,7 @@ span.input-error {
 .admin-item-gauche input {
 	float: left;
 	display: inline-block;
-	width: 75%;
+	width: 72%;
 	padding-left: 10px;
 	height: 30px;
 	font-family: Open Sans;
@@ -729,22 +729,22 @@ span.input-error {
 
 .admin-item-droit span {
 	display: inline-block;
-	width: 10%;
+	width: 13%;
 	float: left;
 }
 
 .admin-item-droit input {
 	float: left;
 	display: inline-block;
-	width: 80%;
+	width: 75%;
 	padding-left: 10px;
 	font-family: Open Sans;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 300;
-	height: 40px;
-	line-height: 40px;
+	height: 30px;
+	line-height: 30px;
 	color: RGB(45, 45, 45);
 }
 
@@ -954,4 +954,33 @@ span.input-error {
 	height:30px !important;
 	line-height:30px !important;
 	margin-bottom: 45px;
+}
+
+.lbl-marge-droite-input{
+	margin-right:10px;
+}
+
+.admin-item-droit select{
+	height:37px;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+}
+
+.admin-item-droit option{
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+}
+
+.gestion-user-admin{
+	height:115px;
+}
+
+.gestion-user-admin-info{
+	height:75px;
 }
