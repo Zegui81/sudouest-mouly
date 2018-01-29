@@ -15,10 +15,10 @@
 	           </div>
 	           <div class="admin-item-droit">
 	           	   <span class="remove-error lbl-admin-produit">Description :</span>
-		           <textarea id="desc-prod" name="description" placeholder="description" class="input-inscription remove-error hauteur-gauche" value="<?php echo (isset($produit) ? $produit->getDescription() : '') ?>"></textarea><br/>
+		           <textarea id="desc-prod" name="description" placeholder="description" class="input-inscription remove-error hauteur-gauche zone-texte" value="<?php echo (isset($produit) ? $produit->getDescription() : '') ?>"></textarea><br/>
 		           <span class="remove-error lbl-admin-produit" id="labelImage">Image :</span>
 		           <input id="img-prod" type="file" name="image-'.$categorie[0].'" placeholder="image" class="input-inscription remove-error"><br/>
-		           <input class="btn-inscription btn-valider btn-admin" type="submit" value=Enregistrer>
+		           <input class="btn-inscription btn-valider btn-admin btn-marge-top-align" type="submit" value=Enregistrer>
 		           <input class="btn-inscription btn-supprimer btn-admin" type="button" value="Annuler">
 	           </div>
 	        </form>

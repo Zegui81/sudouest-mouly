@@ -729,7 +729,7 @@ span.input-error {
 
 .admin-item-droit span {
 	display: inline-block;
-	width: 13%;
+	width: 17%;
 	float: left;
 }
 
@@ -746,6 +746,23 @@ span.input-error {
 	height: 30px;
 	line-height: 30px;
 	color: RGB(45, 45, 45);
+}
+
+.admin-item-droit textarea {
+	float: left;
+	display: inline-block;
+	width: 68% !important;
+	padding-left: 10px;
+	font-family: Open Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;
+	height: 60px !important;
+	line-height: 20px;
+	color: RGB(45, 45, 45);
+	margin-left:5%;
+	margin-bottom:10px !important;
 }
 
 .btn-admin {
@@ -983,4 +1000,8 @@ span.input-error {
 
 .gestion-user-admin-info{
 	height:75px;
+}
+
+.btn-marge-top-align{
+	margin-top:10px !important;
 }
