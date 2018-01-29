@@ -1,6 +1,6 @@
 <?php
 
-    /* Récupère les informations de la BD dans le config.ini */
+    /* Affiche une liste de produit avec la description */
     function displayListeProduit($listeProduit) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
@@ -11,17 +11,17 @@
             $html .= '<div class="conteneur-produit">';
             $html .= '<div class="image-produit">';
             $html .= '<img src="images/produits/';
-            $html .= $produit[0];
+            $html .= $produit->getIdProduit();
             $html .= '.jpg"></div>';
             $html .= '<div class="description-produit"><h2>';
-            $html .= $produit[1];
+            $html .= $produit->getNom();
             $html .= '</h2>';
             $html .= '<span>';
-            $html .= $produit[2];
+            $html .= $produit->getDescription();
             $html .= '</span>';
             $html .= '</div>';
             $html .= '<a href="detailProduit.php?id=';
-            $html .= $produit[0];
+            $html .= $produit->getIdProduit();
             $html .= '">';
             $html .= '<div class="btn-info">';
             $html .= '<i class="fa fa-info" aria-hidden="true"></i>Détails';
@@ -43,41 +43,40 @@
         $html .= '<div class="produit">';
         $html .= '<div class="conteneur-produit">';
         $html .= '<div class="image-produit">';
-        $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
+        $html .= '<img src="images/produits/'.$produit->getIdProduit().'.jpg">';
         
-        if ($produit[4] == 0) { // Stock vide
+        if ($produit->getStock() == 0) { // Stock vide
             $html .= '<figcaption><img src="images/utilitaire/overStock.png" class="overlayEtatArticle"></figcaption>';
-        } else if ($produit[6] > 0) { // Promotion
+        } else if ($produit->getPromotion() > 0) { // Promotion
             $html .= '<figcaption><img src="images/utilitaire/overPromo.png" class="overlayEtatArticle"></figcaption>';
         }
         
         $html .= '</div>';
         $html .= '<div class="description-produit">';
-        $html .= '<h2>'.$produit[1].'</h2>';
-        $html .= '<span>'.$produit[2].'</span>';
+        $html .= '<h2>'.$produit->getNom().'</h2>';
+        $html .= '<span>'.$produit->getDescription().'</span>';
         $html .= '</div>';
-       
         
-        if ($produit[4] != 0) { // Stock non vide
+        if ($produit->getStock() != 0) { // Stock non vide
             $html .= '<a onclick="verificationConnexion(';
             $html .= (isset($_SESSION['pseudo']) ? ('\''.$_SESSION['pseudo'].'\'') : 'null').',';
-            $html .= $produit[0];
+            $html .= $produit->getIdProduit();
             $html .= ')"><span class="btn-ajout">';
             $html .= '<i class="fa fa-shopping-basket" aria-hidden="true"></i>Ajouter au panier';
             $html .= '</span></a>';
         }
         
-        $html .= '<div class="btn-prix">'.number_format($produit[3] * (1 - $produit[6]), 2, ',', ' ').' €</div>';
+        $html .= '<div class="btn-prix">'.number_format($produit->getPrix() * (1 - $produit->getPromotion()), 2, ',', ' ').' €</div>';
         
-        if ($produit[6] > 0) { // Promotion
-            $html .= '<div class="btn-prix ancienPrix">'.number_format($produit[3], 2, ',', ' ').' €</div>';
+        if ($produit->getPromotion() > 0) { // Promotion
+            $html .= '<div class="btn-prix ancienPrix">'.number_format($produit->getPrix(), 2, ',', ' ').' €</div>';
         }
         
         $html .= '<div class="btn-qtt-cbx">';
         $html .= '<select id="quantite">';
         
         // Stocks disponibles avec 10 maximum
-        for ($i = 0; $i <= $produit[4] && $i <= 10; $i++) {
+        for ($i = 0; $i <= $produit->getStock() && $i <= 10; $i++) {
             $html .= '<option value="'.$i.'">'.$i.'</option>';
         }
         
@@ -93,6 +92,7 @@
         echo $html;  
     }
     
+    /* Affiche les produits similaires dans le détail d'un produit */
     function displayListeProduitSimilaire($listeProduit) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
@@ -100,15 +100,15 @@
         $html .= '<div class="liste-produits-similaires">';
         
         foreach ($listeProduit as $produit) {
-            $html .= '<a href="detailProduit.php?id='.$produit[0].'"><span class="produit-simili">';       
-            $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
-            $html .= '<h2>'.$produit[1].'</h2>';
+            $html .= '<a href="detailProduit.php?id='.$produit->getIdProduit().'"><span class="produit-simili">';       
+            $html .= '<img src="images/produits/'.$produit->getIdProduit().'.jpg">';
+            $html .= '<h2>'.$produit->getNom().'</h2>';
             
    
 
-            $html .= '<h3>'.number_format($produit[2] * (1 - $produit[3]), 2, ',', ' ').' €</h3>';
-            if ($produit[3] != 0) { // Promotion
-                $html .= '<h3  class="ancienPrixSimili">'.number_format($produit[2], 2, ',', ' ').' €</h3>';
+            $html .= '<h3>'.number_format($produit->getPrix() * (1 - $produit->getPromotion()), 2, ',', ' ').' €</h3>';
+            if ($produit->getPromotion() != 0) { // Promotion
+                $html .= '<h3  class="ancienPrixSimili">'.number_format($produit->getPrix(), 2, ',', ' ').' €</h3>';
             } else {
                 $html .= '<h3>&nbsp;</h3>';
             }
@@ -131,10 +131,10 @@
         $html .= '<div class="liste-produits-similaires">';
         
         foreach ($listeProduit as $produit) {
-            $html .= '<a href="detailProduit.php?id='.$produit[0].'"><span class="produit-simili">';
-            $html .= '<img src="images/produits/'.$produit[0].'.jpg">';
-            $html .= '<h2>'.$produit[1].'</h2>';
-            $html .= '<h3>'.number_format($produit[2], 2, ',', ' ').' €</h3>';
+            $html .= '<a href="detailProduit.php?id='.$produit->getIdProduit().'"><span class="produit-simili">';
+            $html .= '<img src="images/produits/'.$produit->getIdProduit().'.jpg">';
+            $html .= '<h2>'.$produit->getNom().'</h2>';
+            $html .= '<h3>'.number_format($produit->getPrix(), 2, ',', ' ').' €</h3>';
             $html .= '</span></a>';
         }
         
@@ -160,9 +160,9 @@
         
         foreach ($listeProduit as $produit) {
             $html .= '<tr>';
-            $html .= '<td  class="marge-colonne-tab">'.$produit[1].'</td>';
-            $html .= '<td>'.number_format($produit[3], 2, ',', ' ').' €</td>';
-            $html .= '<td><a href="adminDetailProduit.php?id='.$produit[0].'"><span>Modifier</span></a>';
+            $html .= '<td  class="marge-colonne-tab">'.$produit->getNom().'</td>';
+            $html .= '<td>'.number_format($produit->getPrix(), 2, ',', ' ').' €</td>';
+            $html .= '<td><a href="adminDetailProduit.php?id='.$produit->getIdProduit().'"><span>Modifier</span></a>';
             $html .= '<span>Retirer</span></td>';
             $html .= '</tr>';
         }

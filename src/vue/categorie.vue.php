@@ -7,11 +7,11 @@
         $html .= '<div class="categorie">';
         foreach ($listeCategorie as $categorie) {
             $html .= '<a href="listeProduit.php?categorie=';
-            $html .= $categorie[0];
+            $html .= $categorie->getCode();
             $html .= '"><span class="conteneur"><img src="images/categories/';
-            $html .= $categorie[0];
+            $html .= $categorie->getCode();
             $html .= '.jpg"><figcaption class="legende-categorie">';
-            $html .= $categorie[1];
+            $html .= $categorie->getNom();
             $html .= '</figcaption></span></a>';
         }
         $html .= '</div>';
@@ -29,18 +29,18 @@
         $html .= '<div id="admin-categorie-error"></div>';
 
         foreach ($listeCategorie as $categorie) {
-            $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return validateEditCategorie(\''.$categorie[0].'\')" action="action/doMAJCategorie.php?edit='.$categorie[0].'">';
+            $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return validateEditCategorie(\''.$categorie->getCode().'\')" action="action/doMAJCategorie.php?edit='.$categorie->getCode().'">';
             $html .= '<div class="admin-item-gauche">';
-            $html .= '<span class="remove-error" id="labelcode-'.$categorie[0].'">Code :</span>';
-            $html .= '<input type="text" name="code" placeholder="code" class="input-inscription remove-error" value="'.$categorie[0].'" id="'.$categorie[0].'-code"><br/>';
-            $html .= '<span class="remove-error" id="labelnom-'.$categorie[0].'">Libellé :</span>';
-            $html .= '<input type="text" name="nom" placeholder="nom" class="input-inscription remove-error" value="'.$categorie[1].'" id="'.$categorie[0].'-nom"><br/>';
+            $html .= '<span class="remove-error" id="labelcode-'.$categorie->getCode().'">Code :</span>';
+            $html .= '<input type="text" name="code" placeholder="code" class="input-inscription remove-error" value="'.$categorie->getCode().'" id="'.$categorie->getCode().'-code"><br/>';
+            $html .= '<span class="remove-error" id="labelnom-'.$categorie->getNom().'">Libellé :</span>';
+            $html .= '<input type="text" name="nom" placeholder="nom" class="input-inscription remove-error" value="'.$categorie->getNom().'" id="'.$categorie->getCode().'-nom"><br/>';
             $html .= '</div>';
             $html .= '<div class="admin-item-droit">';
             $html .= '<span class="remove-error" id="labelImage">Image :</span>';
-            $html .= '<input type="file" name="image-'.$categorie[0].'" placeholder="image" class="input-inscription remove-error"><br/>';
+            $html .= '<input type="file" name="image-'.$categorie->getCode().'" placeholder="image" class="input-inscription remove-error"><br/>';
             $html .= '<input class="btn-inscription btn-valider btn-admin" type="submit" value="Éditer">';
-            $html .= '<input onclick="deleteCategorie(\''.$categorie[0].'\')" class="btn-inscription btn-supprimer btn-admin" type="button" value="Supprimer" id="suppr-'.$categorie[0].'">';
+            $html .= '<input onclick="deleteCategorie(\''.$categorie->getCode().'\')" class="btn-inscription btn-supprimer btn-admin" type="button" value="Supprimer" id="suppr-'.$categorie->getCode().'">';
             $html .= '</div>';
             $html .= '</form>';
         }
@@ -60,9 +60,9 @@
         $html .= '<div class="conteneur-center">';
         
         foreach ($listeCategorie as $categorie) {
-            $html .= '<a href="adminListeProduit.php?categorie='.$categorie[0].'">';
+            $html .= '<a href="adminListeProduit.php?categorie='.$categorie->getCode().'">';
             $html .= '<span class="admin-btn-menu">';
-            $html .= $categorie[1];
+            $html .= $categorie->getNom();
             $html .= '</span></a>';
         }
         

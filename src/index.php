@@ -6,6 +6,8 @@
 	include 'vue/categorie.vue.php';
 	include 'vue/divers.vue.php';
 	include 'vue/produit.vue.php';
+	include 'modele/Produit.php';
+	include 'modele/Categorie.php';
 ?>
 <!DOCTYPE html>
 <html>

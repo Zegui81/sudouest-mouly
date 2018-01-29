@@ -4,6 +4,7 @@
     include 'bd/panier.bd.php';
 	include 'vue/divers.vue.php';
 	include 'vue/produit.vue.php';
+	include 'modele/Produit.php';
 	if (!isset($_GET['id'])) {
 	    // Aucun identifiant de produit passé en argument
 	    header('Location: index.php');
@@ -23,7 +24,8 @@
     		displayProduit($produit);
     		
     		// 5 : catégorie / 0 : id produit à exclure
-    		displayListeProduitSimilaire(getListeProduitimilaire($produit[5], $produit[0]));
+    		displayListeProduitSimilaire(getListeProduitimilaire(
+    		      $produit->getCategorie(), $produit->getIdProduit()));
     		
     		displayScroller();
 		?>

@@ -12,11 +12,11 @@
         if ($requete->execute()) {
             $i = 0;
             while($row = $requete->fetch()) {
-                $aRetouner[$i] = array();
-                $aRetouner[$i][0] = $row->idProduit;
-                $aRetouner[$i][1] = $row->nom;
-                $aRetouner[$i][2] = $row->description;
-                $aRetouner[$i][3] = $row->prix;
+                $aRetouner[$i] = new Produit();
+                $aRetouner[$i]->setIdProduit($row->idProduit);
+                $aRetouner[$i]->setNom($row->nom);
+                $aRetouner[$i]->setPrix($row->prix);
+                $aRetouner[$i]->setDescription($row->description);
                 $i++;
             }
             $requete->closeCursor();
@@ -29,27 +29,26 @@
     /* Récupère un produit avec son id, renvoie null si le produit n'existe pas */
     function getProduitById($idProduit) {
         $cnx = openBD(); // Connexion à la base de données
-        
+
         $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE idProduit = ?";
         $requete = $cnx->prepare($rqt);
         $requete->bindValue(1, $idProduit);
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
-        $produit = array();
+        $produit = new Produit();
         $i = 0;
         if ($requete->execute()) {
             while ($row = $requete->fetch()) {
-                $produit[0] = $row->idProduit;
-                $produit[1] = $row->nom;
-                $produit[2] = $row->description;
-                $produit[3] = $row->prix;
-                $produit[4] = $row->stock;
-                $produit[5] = $row->categorie;
-                $produit[6] = $row->promotion;
+                $produit->setIdProduit($row->idProduit);
+                $produit->setNom($row->nom);
+                $produit->setDescription($row->description);
+                $produit->setPrix($row->prix);
+                $produit->setStock($row->stock);
+                $produit->setCategorie($row->categorie);
+                $produit->setPromotion($row->promotion);
                 $i++;
             }
         }
-        
         closeBD($cnx);
         
         // Vérification si un produit a été trouvé
@@ -78,11 +77,11 @@
             $i = 0;
             // On prend 4 produits maximum
             while(($row = $requete->fetch()) && $i < 4) {
-                $aRetouner[$i] = array();
-                $aRetouner[$i][0] = $row->idProduit;
-                $aRetouner[$i][1] = $row->nom;
-                $aRetouner[$i][2] = $row->prix;
-                $aRetouner[$i][3] = $row->promotion;
+                $aRetouner[$i] = new Produit();
+                $aRetouner[$i]->setIdProduit($row->idProduit);
+                $aRetouner[$i]->setNom($row->nom);
+                $aRetouner[$i]->setPrix($row->prix);
+                $aRetouner[$i]->setPromotion($row->promotion);
                 $i++;
             }
             $requete->closeCursor();
@@ -106,10 +105,10 @@
             $i = 0;
             // On prend 4 produits maximum
             while(($row = $requete->fetch()) && $i < 4) {
-                $aRetouner[$i] = array();
-                $aRetouner[$i][0] = $row->idProduit;
-                $aRetouner[$i][1] = $row->nom;
-                $aRetouner[$i][2] = $row->prix;
+                $aRetouner[$i] = new Produit();
+                $aRetouner[$i]->setIdProduit($row->idProduit);
+                $aRetouner[$i]->setNom($row->nom);
+                $aRetouner[$i]->setPrix($row->prix);
                 $i++;
             }
             $requete->closeCursor();
@@ -135,10 +134,10 @@
             $i = 0;
             // On prend 4 produits maximum
             while ($row = $requete->fetch()) {
-                $aRetouner[$i] = array();
-                $aRetouner[$i][0] = $row->idProduit;
-                $aRetouner[$i][1] = $row->nom;
-                $aRetouner[$i][2] = $row->description;
+                $aRetouner[$i] = new Produit();
+                $aRetouner[$i]->setIdProduit($row->idProduit);
+                $aRetouner[$i]->setNom($row->nom);
+                $aRetouner[$i]->setDescription($row->description);
                 $i ++;
             }
             $requete->closeCursor();

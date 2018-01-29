@@ -5,6 +5,7 @@
 	include 'bd/categorie.bd.php';
 	include 'vue/divers.vue.php';
 	include 'vue/produit.vue.php';
+	include 'modele/Produit.php';
 ?>
 <!DOCTYPE html>
 <html>

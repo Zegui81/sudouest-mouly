@@ -3,7 +3,7 @@
 	function getListeCategorie() {
 		$cnx = openBD(); // Connexion à la base de données
 		
-		$rqt = "SELECT code, nom, description FROM categorie WHERE code NOT LIKE '\_%'";
+		$rqt = "SELECT code, nom FROM categorie WHERE code NOT LIKE '\_%'";
 		$listecat = $cnx->prepare($rqt);
 		$listecat->setFetchMode(PDO::FETCH_OBJ);
 					
@@ -11,10 +11,9 @@
 		if ($listecat->execute()) {
 			$i=0;
 			while($row = $listecat->fetch()) {
-			    $aRetouner[$i] = array();
-				$aRetouner[$i][0] = $row->code;
-				$aRetouner[$i][1] = $row->nom;
-				$aRetouner[$i][2] = $row->description;
+			    $aRetouner[$i] = new Categorie();
+				$aRetouner[$i]->setCode($row->code);
+				$aRetouner[$i]->setNom($row->nom);
 				$i++;
 			}
 			$listecat->closeCursor();
@@ -69,10 +68,8 @@
 	    $cnx = openBD(); // Connexion à la base de données
 	    
 	    $stmt = $cnx->prepare("INSERT INTO categorie (code, nom) VALUES (:code, :nom)");
-	    
 	    $stmt->bindParam(':code', $code);
 	    $stmt->bindParam(':nom', $nom);
-	    
 	    $stmt->execute();
 	    
 	    closeBD($cnx);  
@@ -84,11 +81,9 @@
 	    
 	    $stmt = $cnx->prepare("UPDATE categorie SET code = :newCode, nom = :nom "
 	        ."WHERE code = :oldCode");
-	    
 	    $stmt->bindParam(':oldCode', $oldCode);
 	    $stmt->bindParam(':newCode', $newCode);
 	    $stmt->bindParam(':nom', $nom);
-	    
 	    $stmt->execute();
 	    
 	    closeBD($cnx);  

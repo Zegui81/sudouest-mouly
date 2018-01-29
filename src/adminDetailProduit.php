@@ -3,6 +3,8 @@
     include 'bd/categorie.bd.php';
     include 'bd/produit.bd.php';
     include 'vue/divers.vue.php';
+    include 'modele/Produit.php';
+    include 'modele/Categorie.php';
     if (!(isset($_SESSION['statut']) && $_SESSION['statut'] == 1)) {
         // Si un administrateur n'est pas connecté, on n'autorise pas l'accès à la page
         header('Location: index.php');
@@ -11,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 	<head><?php includeHead(); ?></head>	
-	<body <?php echo isset($_GET['id']) ? ('onload=" return displayFicheProduit(\''.loadFormProduitJSON($_GET['id']).'\')"') : ''; ?>>
+	<body>
 		<?php displayMenu();
 		      
     		if (isset($_GET['id'])) {
