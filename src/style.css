@@ -984,6 +984,8 @@ span.input-error {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
+	width:78%;
+	margin-left:-10px;
 }
 
 .admin-item-droit option{
@@ -999,7 +1001,7 @@ span.input-error {
 }
 
 .gestion-user-admin-info{
-	height:75px;
+	height:235px;
 }
 
 .btn-marge-top-align{
