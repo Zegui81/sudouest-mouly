@@ -3,9 +3,15 @@
     function getListeProduitByCategorie($categorie) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE categorie = ?";
-        $requete = $cnx->prepare($rqt);
-        $requete->bindValue(1, $categorie);
+        
+        if ($categorie == 'null') {
+            $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE categorie IS NULL";
+            $requete = $cnx->prepare($rqt);
+        } else {
+            $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE categorie = :categorie";
+            $requete = $cnx->prepare($rqt);
+            $requete->bindParam(':categorie', $categorie);
+        }
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
         $aRetouner = array();
