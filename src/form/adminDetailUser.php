@@ -2,12 +2,12 @@
 	<div class="produit">
 		<h1 class="page-produit no-merge">Détail de l'utilisateur <?php echo $user->getPseudo() ?></h1>
 		<div class="conteneur-center">
-    		<form class="liste-item-inscription item-admin gestion-user-admin-info" enctype="multipart/form-data" name="adminCategorie" method="POST">
+    		<form class="liste-item-inscription item-admin gestion-user-admin-info" enctype="multipart/form-data" onsubmit="return validateUpdateProduit()" name="adminCategorie" method="POST" action="action/doUpdateUser.php">
                <div class="admin-item-gauche">	
                	   <span class="remove-error lbl-admin-produit lbl-marge-droite-input">Pseudo :</span>
-    	           <input id="promo-prod" type="text" name="pseudo" placeholder="pseudonyme" class="input-inscription remove-error" value="<?php echo $user->getPseudo() ?>"><br/>	           
+    	           <input id="promo-prod" type="text" name="pseudo" placeholder="pseudonyme" class="input-inscription remove-error" value="<?php echo $user->getPseudo() ?>" disabled><br/>	           
     	           <span class="remove-error lbl-admin-produit lbl-marge-droite-input">Mail :</span>
-    	           <input id="promo-prod" type="text" name="mail" placeholder="adresse mail" class="input-inscription remove-error" value="<?php echo $user->getMail() ?>"><br/>
+    	           <input id="promo-prod" type="text" name="mail" placeholder="adresse mail" class="input-inscription remove-error" value="<?php echo $user->getMail() ?>" disabled><br/>
                </div>
                <div class="admin-item-droit">
     	           <span class="remove-error lbl-admin-produit lbl-marge-droite-input">Nom :</span>
