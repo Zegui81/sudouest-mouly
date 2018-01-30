@@ -135,3 +135,8 @@ function deleteCategorie(code) {
 		window.location.replace('action/doDeleteCategorie.php?code=' + code);
 	}
 }
+
+/* Permet de renvoyer à la page de la liste des utilisateurs */
+function goToAdminListeUser() {
+	window.location.replace('adminListeUser.php');
+}

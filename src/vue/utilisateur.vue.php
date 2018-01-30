@@ -16,10 +16,10 @@
         foreach ($listeUser as $user) {
             $html .= '<tr>';
             $html .= '<td class="marge-colonne-tab">'.$user->getPseudo().'</td>';
-
             $html .= '<td>'.$user->getMail().'</td>';
             $html .= '<td>'.($user->getRole() == 0 ? 'Client' : 'Administrateur').'</td>';
-            $html .= '<td><span>Supprimer</span><span>Modifier</span></td>';
+            $html .= '<td><a href="adminDetailUser.php?pseudo='.$user->getPseudo().'"><span>Modifier</span>';
+            $html .= '<span>Désactiver</span></td></a>';
             $html .= '</tr>';
         }
         

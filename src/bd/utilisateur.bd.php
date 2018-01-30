@@ -108,4 +108,34 @@
         closeBD($cnx);     
         return $aRetouner;
     }
+    
+    /* Recherche un utilisateur grâce à son pseudo */
+    function getUtilisateurByPseudo($pseudo) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $rqt = "SELECT * FROM utilisateur WHERE pseudo = :pseudo";
+        $requete = $cnx->prepare($rqt);
+        $requete->bindParam(':pseudo', $pseudo);
+        $requete->setFetchMode(PDO::FETCH_OBJ);
+        
+        $user = new Utilisateur();
+        $i = 0;
+        if ($requete->execute()) {
+            while ($row = $requete->fetch()) {
+                $user->setPseudo($row->pseudo);
+                $user->setMail($row->mail);
+                $user->setNom($row->nom);
+                $user->setPrenom($row->prenom);
+                $user->setNaissance($row->naissence);
+                $user->setAdresse($row->adresse);
+                $user->setCodePostal($row->codePostal);
+                $user->setVille($row->ville);
+                $user->setRole($row->role);
+                $user->setSupprime($row->supprime);
+                $i++;
+            }
+        }
+        closeBD($cnx);
+        return $user;
+    }
 ?>
