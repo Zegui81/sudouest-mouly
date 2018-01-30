@@ -29,7 +29,7 @@
         $html .= '<div id="admin-categorie-error"></div>';
 
         foreach ($listeCategorie as $categorie) {
-            $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return validateEditCategorie(\''.$categorie->getCode().'\')" action="action/doMAJCategorie.php?edit='.$categorie->getCode().'">';
+            $html .= '<form class="liste-item-inscription item-admin" enctype="multipart/form-data" name="adminCategorie" method="POST" onsubmit="return validateEditCategorie(\''.$categorie->getCode().'\')" action="action/doUpdateCategorie.php?edit='.$categorie->getCode().'">';
             $html .= '<div class="admin-item-gauche">';
             $html .= '<span class="remove-error" id="labelcode-'.$categorie->getCode().'">Code :</span>';
             $html .= '<input type="text" name="code" placeholder="code" class="input-inscription remove-error" value="'.$categorie->getCode().'" id="'.$categorie->getCode().'-code"><br/>';

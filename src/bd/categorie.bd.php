@@ -3,20 +3,20 @@
 	function getListeCategorie() {
 		$cnx = openBD(); // Connexion à la base de données
 		
-		$rqt = "SELECT code, nom FROM categorie WHERE code NOT LIKE '\_%'";
-		$listecat = $cnx->prepare($rqt);
-		$listecat->setFetchMode(PDO::FETCH_OBJ);
+		$rqt = 'SELECT code, nom FROM categorie WHERE code NOT LIKE \'\_%\'';
+		$requete = $cnx->prepare($rqt);
+		$requete->setFetchMode(PDO::FETCH_OBJ);
 					
 		$aRetouner = array();
-		if ($listecat->execute()) {
-			$i=0;
-			while($row = $listecat->fetch()) {
+		if ($requete->execute()) {
+			$i = 0;
+			while ($row = $requete->fetch()) {
 			    $aRetouner[$i] = new Categorie();
 				$aRetouner[$i]->setCode($row->code);
 				$aRetouner[$i]->setNom($row->nom);
 				$i++;
 			}
-			$listecat->closeCursor();
+			$requete->closeCursor();
 		}
 		
 		closeBD($cnx);
@@ -27,7 +27,7 @@
 	function isCategorie($aTester) {
 	    $cnx = openBD(); // Connexion à la base de données
 	    
-	    $requete = $cnx->prepare("SELECT count(*) FROM categorie WHERE code = :code");
+	    $requete = $cnx->prepare('SELECT count(*) FROM categorie WHERE code = :code');
 	    $requete->bindParam(':code', $aTester);
 	    $requete->execute();
 	    $donnees = $requete->fetch();
@@ -40,7 +40,7 @@
 	function controlCodeForInsert($nouveau) {
 	    $cnx = openBD(); // Connexion à la base de données
 	    
-	    $requete = $cnx->prepare("SELECT count(*) FROM categorie WHERE code = :nouveau");
+	    $requete = $cnx->prepare('SELECT count(*) FROM categorie WHERE code = :nouveau');
 	    $requete->bindParam(':nouveau', $nouveau);
 	    $requete->execute();
 	    $donnees = $requete->fetch();
@@ -53,7 +53,7 @@
 	function controlCodeForUpdate($ancien, $nouveau) {
 	    $cnx = openBD(); // Connexion à la base de données
 	    
-	    $requete = $cnx->prepare("SELECT COUNT(*) AS total FROM categorie WHERE code <> :ancien AND code = :nouveau");
+	    $requete = $cnx->prepare('SELECT COUNT(*) AS total FROM categorie WHERE code <> :ancien AND code = :nouveau');
 	    $requete->bindParam(':ancien', $ancien);
 	    $requete->bindParam(':nouveau', $nouveau);
 	    $requete->execute();
@@ -67,7 +67,7 @@
 	function addCategorie($code, $nom) {
 	    $cnx = openBD(); // Connexion à la base de données
 	    
-	    $stmt = $cnx->prepare("INSERT INTO categorie (code, nom) VALUES (:code, :nom)");
+	    $stmt = $cnx->prepare('INSERT INTO categorie (code, nom) VALUES (:code, :nom)');
 	    $stmt->bindParam(':code', $code);
 	    $stmt->bindParam(':nom', $nom);
 	    $stmt->execute();
@@ -79,8 +79,8 @@
 	function updateCategorie($oldCode, $newCode, $nom) {
 	    $cnx = openBD(); // Connexion à la base de données
 	    
-	    $stmt = $cnx->prepare("UPDATE categorie SET code = :newCode, nom = :nom "
-	        ."WHERE code = :oldCode");
+	    $stmt = $cnx->prepare('UPDATE categorie SET code = :newCode, nom = :nom '
+	        .'WHERE code = :oldCode');
 	    $stmt->bindParam(':oldCode', $oldCode);
 	    $stmt->bindParam(':newCode', $newCode);
 	    $stmt->bindParam(':nom', $nom);
@@ -93,7 +93,7 @@
 	function removeCategorie($code) {
 	    $cnx = openBD(); // Connexion à la base de données
 	    
-	    $stmt = $cnx->prepare("DELETE FROM categorie WHERE code = :code");
+	    $stmt = $cnx->prepare('DELETE FROM categorie WHERE code = :code');
 	    $stmt->bindParam(':code', $code);
 	    $stmt->execute();
 	    

@@ -3,7 +3,7 @@
     function existMail($mail) {
         $cnx = openBD(); // Connexion à la base de données
             
-        $requete = $cnx->prepare("SELECT * FROM utilisateur WHERE mail = :mail");
+        $requete = $cnx->prepare('SELECT * FROM utilisateur WHERE mail = :mail');
         $requete->bindValue('mail', $mail, PDO::PARAM_INT);
         $requete->execute();
         $donnees = $requete->fetch();
@@ -16,7 +16,7 @@
     function existPseudo($pseudo) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $requete = $cnx->prepare("SELECT * FROM utilisateur WHERE pseudo = :pseudo");
+        $requete = $cnx->prepare('SELECT * FROM utilisateur WHERE pseudo = :pseudo');
         $requete->bindValue('pseudo', $pseudo, PDO::PARAM_INT);
         $requete->execute();
         $donnees = $requete->fetch();
@@ -34,7 +34,7 @@
     function connexion($pseudo, $mdp) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $requete = $cnx->prepare("SELECT pseudo, mdp, role FROM utilisateur WHERE pseudo = :pseudo");
+        $requete = $cnx->prepare('SELECT pseudo, mdp, role FROM utilisateur WHERE pseudo = :pseudo');
         $requete->bindValue('pseudo', $pseudo, PDO::PARAM_INT);
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
@@ -66,9 +66,9 @@
             
         $cnx = openBD(); // Connexion à la base de données
             
-        $stmt = $cnx->prepare("INSERT INTO utilisateur "
-            ."(pseudo, mail, mdp, nom, prenom, naissance, adresse, codePostal, ville, role, supprime) "
-            ."VALUES (:pseudo, :mail, :mdp, :nom, :prenom, :naissance, :adresse, :codePostal, :ville, 0, 0)");
+        $stmt = $cnx->prepare('INSERT INTO utilisateur '
+            .'(pseudo, mail, mdp, nom, prenom, naissance, adresse, codePostal, ville, role, supprime) '
+            .'VALUES (:pseudo, :mail, :mdp, :nom, :prenom, :naissance, :adresse, :codePostal, :ville, 0, 0)');
         
         $stmt->bindParam(':pseudo', $pseudo);
         $stmt->bindParam(':mail', $mail);
@@ -84,11 +84,33 @@
         closeBD($cnx);        
     }
     
+    /* Mise à jour d'un utilisateur */
+    function updateUtilisateur($pseudo, $nom, $prenom, $naissance, $adresse, $cp, $ville, $role) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $stmt = $cnx->prepare('UPDATE utilisateur SET '
+            .'pseudo = :pseudo, nom = :nom, prenom = :prenom, naissance = :naissance, '
+            .'adresse = :adresse, codePostal = :codePostal, ville = :ville, role = :role '
+            .'WHERE pseudo = :pseudo');
+        
+        $stmt->bindParam(':pseudo', $pseudo);
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':prenom', $prenom);
+        $stmt->bindParam(':naissance', $naissance);
+        $stmt->bindParam(':adresse', $adresse);
+        $stmt->bindParam(':codePostal', $cp);
+        $stmt->bindParam(':ville', $ville);
+        $stmt->bindParam(':role', $role);
+        $stmt->execute();
+        
+        closeBD($cnx);        
+    }
+    
     /* Permet d'obtenir la liste des utilisateurs */
     function getListeUtilisateur() {
         $cnx = openBD(); // Connexion à la base de données
         
-        $requete = $cnx->prepare("SELECT pseudo, mail, role FROM utilisateur");
+        $requete = $cnx->prepare('SELECT pseudo, mail, role FROM utilisateur');
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
         $aRetouner = array();
@@ -103,7 +125,6 @@
             }
             $requete->closeCursor();
         }
-        $requete->execute();
         
         closeBD($cnx);     
         return $aRetouner;
@@ -113,7 +134,7 @@
     function getUtilisateurByPseudo($pseudo) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = "SELECT * FROM utilisateur WHERE pseudo = :pseudo";
+        $rqt = 'SELECT * FROM utilisateur WHERE pseudo = :pseudo';
         $requete = $cnx->prepare($rqt);
         $requete->bindParam(':pseudo', $pseudo);
         $requete->setFetchMode(PDO::FETCH_OBJ);

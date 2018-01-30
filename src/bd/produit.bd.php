@@ -5,10 +5,10 @@
         
         
         if ($categorie == 'null') {
-            $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE categorie IS NULL";
+            $rqt = 'SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE categorie IS NULL';
             $requete = $cnx->prepare($rqt);
         } else {
-            $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE categorie = :categorie";
+            $rqt = 'SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE categorie = :categorie';
             $requete = $cnx->prepare($rqt);
             $requete->bindParam(':categorie', $categorie);
         }
@@ -39,15 +39,15 @@
     function getProduitById($idProduit) {
         $cnx = openBD(); // Connexion à la base de données
 
-        $rqt = "SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE idProduit = ?";
+        $rqt = 'SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE idProduit = :idProduit';
         $requete = $cnx->prepare($rqt);
-        $requete->bindValue(1, $idProduit);
+        $requete->bindParam(':idProduit', $idProduit);
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
-        $produit = new Produit();
-        $i = 0;
+        $produit = null;
         if ($requete->execute()) {
             while ($row = $requete->fetch()) {
+                $produit = new Produit();
                 $produit->setIdProduit($row->idProduit);
                 $produit->setNom($row->nom);
                 $produit->setDescription($row->description);
@@ -55,16 +55,10 @@
                 $produit->setStock($row->stock);
                 $produit->setCategorie($row->categorie);
                 $produit->setPromotion($row->promotion);
-                $i++;
             }
         }
-        closeBD($cnx);
         
-        // Vérification si un produit a été trouvé
-        if ($i == 0) {
-            // Aucun produit trouvé
-            return null;
-        } // Else un produit a été trouvé
+        closeBD($cnx);
         return $produit;
     }
     
@@ -104,8 +98,8 @@
     function getListeProduitPhare() {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = 'SELECT idProduit, nom, prix, stock, categorie FROM produit '
-                .'WHERE idProduit ORDER BY prix';
+        $rqt = 'SELECT idProduit, nom, prix, stock, promotion, categorie FROM produit '
+                .'WHERE idProduit ORDER BY stock, promotion, prix';
         $requete = $cnx->prepare($rqt);
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
@@ -118,6 +112,7 @@
                 $aRetouner[$i]->setIdProduit($row->idProduit);
                 $aRetouner[$i]->setNom($row->nom);
                 $aRetouner[$i]->setPrix($row->prix);
+                $aRetouner[$i]->setPromotion($row->promotion);
                 $i++;
             }
             $requete->closeCursor();
@@ -131,7 +126,8 @@
     function getListeProduitBySearch($aChercher) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $rqt = 'SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit WHERE LOWER(nom) LIKE LOWER(:search)'
+        $rqt = 'SELECT idProduit, nom, description, prix, stock, promotion, categorie FROM produit'
+            .' WHERE LOWER(nom) LIKE LOWER(:search)'
             .' OR LOWER(description) LIKE LOWER(:searchDescription)';
         $requete = $cnx->prepare($rqt);
         $requete->bindValue(':search', '%'.$aChercher.'%');

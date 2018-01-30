@@ -8,7 +8,7 @@
             password_hash($_POST['password'], PASSWORD_DEFAULT),
             $_POST['nom'],
             empty($_POST['prenom']) ? null : $_POST['prenom'],
-            empty($_POST['naissence']) ? null : $_POST['naissence'],
+            empty($_POST['naissance']) ? null : $_POST['naissance'],
             empty($_POST['adresse']) ? null : $_POST['adresse'],
             empty($_POST['cp']) ? null : $_POST['cp'],
             empty($_POST['ville']) ? null : $_POST['ville']);

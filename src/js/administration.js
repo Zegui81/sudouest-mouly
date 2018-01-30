@@ -140,3 +140,33 @@ function deleteCategorie(code) {
 function goToAdminListeUser() {
 	window.location.replace('adminListeUser.php');
 }
+
+/* Contrôle avant la validation d'un utilisateur */
+function validateUpdateProduit() {
+	// Réinitialisation du formulaire
+	$('#admin-user-error').removeClass('error-form-admin');
+
+	var ok = true;
+    var listeErreur = [];
+	var nom = $('#nom-user').val().trim();
+	
+	if (nom === '') {
+		$('#label-nom-user').addClass('input-error');
+    	$('#nom-user').addClass('input-error');
+    	listeErreur.push('Le champ "Nom" est obligatoire.');
+    	ok = false;
+	}
+	
+    // Affichage de la liste
+    if (!ok) {
+    	$('#admin-user-error').addClass('error-form-admin');
+    	$('#admin-user-error').append('Impossible de valider le formulaire car : ');
+    	$('#admin-user-error').append('<ul>');
+    	listeErreur.forEach(function(element) {
+    		$('#admin-user-error').append('<li>' + element + '</li>');
+    	});
+    	$('#admin-user-error').append('</ul>');
+    }
+  
+	return ok;
+}

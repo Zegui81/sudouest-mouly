@@ -112,8 +112,6 @@
             $html .= '<a href="detailProduit.php?id='.$produit->getIdProduit().'"><span class="produit-simili">';       
             $html .= '<img src="images/produits/'.$produit->getIdProduit().'.jpg">';
             $html .= '<h2>'.$produit->getNom().'</h2>';
-            
-   
 
             $html .= '<h3>'.number_format($produit->getPrix() * (1 - $produit->getPromotion()), 2, ',', ' ').' €</h3>';
             if ($produit->getPromotion() != 0) { // Promotion
@@ -143,7 +141,14 @@
             $html .= '<a href="detailProduit.php?id='.$produit->getIdProduit().'"><span class="produit-simili">';
             $html .= '<img src="images/produits/'.$produit->getIdProduit().'.jpg">';
             $html .= '<h2>'.$produit->getNom().'</h2>';
-            $html .= '<h3>'.number_format($produit->getPrix(), 2, ',', ' ').' €</h3>';
+            
+            $html .= '<h3>'.number_format($produit->getPrix() * (1 - $produit->getPromotion()), 2, ',', ' ').' €</h3>';
+            if ($produit->getPromotion() != 0) { // Promotion
+                $html .= '<h3  class="ancienPrixSimili">'.number_format($produit->getPrix(), 2, ',', ' ').' €</h3>';
+            } else {
+                $html .= '<h3>&nbsp;</h3>';
+            }
+            
             $html .= '</span></a>';
         }
         

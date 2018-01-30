@@ -3,8 +3,8 @@
     function addProduitPanier($pseudo, $idProduit, $quantite) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $stmt = $cnx->prepare("REPLACE INTO panier "
-            ."(utilisateur, produit, quantite) VALUES (:utilisateur, :produit, :quantite)");
+        $stmt = $cnx->prepare('REPLACE INTO panier '
+            .'(utilisateur, produit, quantite) VALUES (:utilisateur, :produit, :quantite)');
         
         $stmt->bindParam(':utilisateur', $pseudo);
         $stmt->bindParam(':produit', $idProduit);
@@ -50,7 +50,7 @@
     function getNbArticleForUser($pseudo) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $requete = $cnx->prepare("SELECT count(*) FROM panier WHERE utilisateur = :pseudo");
+        $requete = $cnx->prepare('SELECT count(*) FROM panier WHERE utilisateur = :pseudo');
         $requete->bindParam(':pseudo', $pseudo);
         $requete->execute();
         $donnees = $requete->fetch();
