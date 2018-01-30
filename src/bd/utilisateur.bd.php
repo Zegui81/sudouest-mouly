@@ -126,7 +126,7 @@
                 $user->setMail($row->mail);
                 $user->setNom($row->nom);
                 $user->setPrenom($row->prenom);
-                $user->setNaissance($row->naissence);
+                $user->setNaissance($row->naissance);
                 $user->setAdresse($row->adresse);
                 $user->setCodePostal($row->codePostal);
                 $user->setVille($row->ville);
