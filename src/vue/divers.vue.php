@@ -60,8 +60,9 @@
             $html .= '<a href="adminMenu.php"><i class="fa fa-wrench" aria-hidden="true"></i>Administrer</a>';
             $html .= '<a href="action/doDeconnexion.php" class="marge-lien"><i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter</a>';
         } else if ($session) { // SESSION UTILISATEUR
+            $nbArticle = getNbArticleForUser($_SESSION['pseudo']);
             $html .= '<a href="panier.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i>Mon panier : ';
-            $html .= getNbArticleForUser($_SESSION['pseudo']).' article(s)';
+            $html .= $nbArticle > 1 ? ($nbArticle.' articles') : ($nbArticle.' article');
             $html .= '</a>';
             $html .= '<a href="action/doDeconnexion.php" class="marge-lien"><i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter</a>';
         } else { // PAS DE SESSION

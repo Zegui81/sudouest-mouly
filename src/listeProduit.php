@@ -28,7 +28,12 @@
     		}
     		
     		// Contenu de la liste
-    		displayListeProduit($listeProduit);
+    		if (count($listeProduit) == 0) {
+    		    $message = 'Aucun produit n\'a été trouvé.';
+    		    require_once 'form/exception.php';
+    		} else {
+    		    displayListeProduit($listeProduit);
+    		}
     		
     		displayScroller(); // Scroller pour remonter
 		?>
