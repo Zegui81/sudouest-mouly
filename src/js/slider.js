@@ -8,7 +8,7 @@ function slide(nbImage) {
 		localisation = 0;
 	}
 	
-	var hauteurEcran = -(window.innerHeight + 125) * localisation;
+	var hauteurEcran = -1080 * localisation;
 	$('#slider1').animate({top: hauteurEcran + 'px'}, 1500);
 	localisation++;
 }

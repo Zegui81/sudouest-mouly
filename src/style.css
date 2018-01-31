@@ -257,6 +257,7 @@ footer {
 	width: 300px;
 	float: left;
 	margin-right: 15px;
+	overflow:hidden;
 }
 
 .description-produit {
@@ -1006,4 +1007,27 @@ span.input-error {
 
 .btn-marge-top-align{
 	margin-top:10px !important;
+}
+
+.erreur-gras{
+	font-family: Open Sans;
+	font-size: 125px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	color:RGB(55,55,55);
+}
+
+.erreur{
+	font-family: Open Sans;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	color:RGB(45,45,45);
+	margin-bottom:25px;
+}
+
+.erreur-center{
+	text-align:center;
 }

@@ -4,6 +4,7 @@
         $html = '<title>Mon bon terroir</title>';
         $html .= '<meta charset="UTF-8">';
         $html .= '<link rel="stylesheet" href="style.css" type="text/css">';
+        $html .= '<link rel="shortcut icon" type="image/x-icon" href="images/logoSite.ico" />';        
         $html .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
         $html .= '<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">';
         $html .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
