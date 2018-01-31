@@ -5,11 +5,15 @@
         
         $stmt = $cnx->prepare('REPLACE INTO panier '
             .'(utilisateur, produit, quantite) VALUES (:utilisateur, :produit, :quantite)');
-        
         $stmt->bindParam(':utilisateur', $pseudo);
         $stmt->bindParam(':produit', $idProduit);
         $stmt->bindParam(':quantite', $quantite);
+        $stmt->execute();
         
+        // On décrémente le compteur de la quantité du produit
+        $stmt = $cnx->prepare('UPDATE produit SET stock = stock - :quantite WHERE idProduit = :idProduit');
+        $stmt->bindParam(':quantite', $quantite);
+        $stmt->bindParam(':idProduit', $idProduit);
         $stmt->execute();
         
         closeBD($cnx);  
@@ -57,5 +61,23 @@
 
         closeBD($cnx);
         return $donnees[0];
+    }
+    
+    /* Permet de retirer un article du panier */
+    function removeProduitPanier($pseudo, $idProduit, $quantite) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $stmt = $cnx->prepare('DELETE FROM panier WHERE utilisateur = :utilisateur AND produit = :produit ');
+        $stmt->bindParam(':utilisateur', $pseudo);
+        $stmt->bindParam(':produit', $idProduit);
+        $stmt->execute();
+        
+        // On réincrémente le compteur de la quantité du produit
+        $stmt = $cnx->prepare('UPDATE produit SET stock = stock + :quantite WHERE idProduit = :idProduit');
+        $stmt->bindParam(':quantite', $quantite);
+        $stmt->bindParam(':idProduit', $idProduit);
+        $stmt->execute();
+        
+        closeBD($cnx);  
     }
 ?>
