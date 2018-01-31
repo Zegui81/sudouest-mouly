@@ -81,19 +81,23 @@
             $html .= '<div class="btn-prix ancienPrix">'.number_format($produit->getPrix(), 2, ',', ' ').' €</div>';
         }
         
-        $html .= '<div class="btn-qtt-cbx">';
-        $html .= '<select id="quantite">';
-        
-        // Stocks disponibles avec 10 maximum
-        for ($i = 0; $i <= $produit->getStock() && $i <= 10; $i++) {
-            $html .= '<option value="'.$i.'">'.$i.'</option>';
+        if ($produit->getStock() != 0) { 
+            // Choix de la quantité s'il n'y a pas rupture de stock
+            $html .= '<div class="btn-qtt-cbx">';
+            $html .= '<select id="quantite">';
+            
+            // Stocks disponibles avec 10 maximum
+            for ($i = 1; $i <= $produit->getStock() && $i <= 10; $i++) {
+                $html .= '<option value="'.$i.'">'.$i.'</option>';
+            }
+            
+            $html .= '</select>';
+            $html .= '</div>';
+            $html .= '<div class="btn-qtt-lbl">';
+            $html .= '<span>Quantité : </span>';
+            $html .= '</div>';
         }
         
-        $html .= '</select>';
-        $html .= '</div>';
-        $html .= '<div class="btn-qtt-lbl">';
-        $html .= '<span>Quantité : </span>';
-        $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';

@@ -28,13 +28,12 @@
     /* Contrôle l'existance d'un utilisateur avec son pseudo et son mdp
      * @return - le statut de l'utilisateur (0 : client, 1 admin) si l'identification est bonne,
      *         - -1 si l'utilisateur existe mais le mot de passe est incorrect
-     *         - -2 si l'utilisateur n'existe pas 
-     * 
+     *         - -2 si l'utilisateur n'existe pas ou le compte est désactivé
      */ 
     function connexion($pseudo, $mdp) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $requete = $cnx->prepare('SELECT pseudo, mdp, role FROM utilisateur WHERE pseudo = :pseudo');
+        $requete = $cnx->prepare('SELECT pseudo, mdp, role FROM utilisateur WHERE pseudo = :pseudo AND supprime = 0');
         $requete->bindValue('pseudo', $pseudo, PDO::PARAM_INT);
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
@@ -110,7 +109,7 @@
     function getListeUtilisateur() {
         $cnx = openBD(); // Connexion à la base de données
         
-        $requete = $cnx->prepare('SELECT pseudo, mail, role FROM utilisateur');
+        $requete = $cnx->prepare('SELECT pseudo, mail, role, supprime FROM utilisateur');
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
         $aRetouner = array();
@@ -121,6 +120,7 @@
                 $aRetouner[$i]->setPseudo($row->pseudo);
                 $aRetouner[$i]->setMail($row->mail);
                 $aRetouner[$i]->setRole($row->role);
+                $aRetouner[$i]->setSupprime($row->supprime);
                 $i++;
             }
             $requete->closeCursor();
@@ -158,5 +158,27 @@
         }
         closeBD($cnx);
         return $user;
+    }
+    
+    /* Active l'utilisateur */
+    function enableUser($pseudo) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $stmt = $cnx->prepare('UPDATE utilisateur SET supprime = 0 WHERE pseudo = :pseudo');
+        $stmt->bindParam(':pseudo', $pseudo);
+        $stmt->execute();
+        
+        closeBD($cnx);
+    }
+    
+    /* Désactive l'utilisateur */
+    function disableUser($pseudo) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $stmt = $cnx->prepare('UPDATE utilisateur SET supprime = 1 WHERE pseudo = :pseudo');
+        $stmt->bindParam(':pseudo', $pseudo);
+        $stmt->execute();
+        
+        closeBD($cnx);
     }
 ?>

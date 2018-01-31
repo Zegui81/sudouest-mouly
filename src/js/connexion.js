@@ -33,10 +33,10 @@ function validateConnexion() {
     		complete: function(resultat) {
     			var json = JSON.parse(resultat.responseJSON);
     			if (json.statut == -2) {
-    				erreur = 'Le pseudo saisi n\'existe pas.';
+    				erreur = 'Le pseudo saisi ne correspond à aucun compte actif.';
     				ok = false;
     			} else if (json.statut == -1) {
-    				erreur = 'Le mot de passe pour son compte est incorrect.';
+    				erreur = 'Le mot de passe pour ce compte est incorrect.';
     				ok = false;
     			}
     		}
