@@ -35,7 +35,6 @@
         
         $html .= '</table>';
         $html .= '</div><br>';
-        $html .= '<div class="produit"><span class="btn-admin-ajout" onclick="addCategorie()"><i class="fa fa-plus"></i>Ajouter</span><br></div>';
         $html .= '</div>';
         $html .= '</div>';
         
