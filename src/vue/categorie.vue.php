@@ -78,4 +78,17 @@
         
         echo $html;
     }
+    
+    /* Affiche les catégories sous la forme d'une liste déroulante */
+    function displayCategoriesOption($listeCategorie, $selected) {
+        $html = '';
+        foreach ($listeCategorie as $categorie) {
+            $html .= '<option value="'.$categorie->getCode().'" class="input-inscription" ';
+            $html .= $categorie->getCode() == $selected ? 'selected' : '';
+            $html .= '>';
+            $html .= $categorie->getNom();
+            $html .= '</option>';
+        }
+        echo $html;
+    }
 ?>

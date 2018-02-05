@@ -142,7 +142,7 @@ function goToAdminListeUser() {
 }
 
 /* Contrôle avant la validation d'un utilisateur */
-function validateUpdateProduit() {
+function validateUpdateUser() {
 	// Réinitialisation du formulaire
 	$('#admin-user-error').removeClass('error-form-admin');
 

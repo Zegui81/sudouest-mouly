@@ -4,7 +4,7 @@
 		<div id="admin-user-error"></div>
 		<div class="conteneur-center">
     		<form class="liste-item-inscription item-admin gestion-user-admin-info" enctype="multipart/form-data" 
-    				onsubmit="return validateUpdateProduit()" name="adminUser" method="POST" action="action/doUpdateUser.php?pseudo=<?php echo $user->getPseudo() ?>">
+    				onsubmit="return validateUpdateUser()" name="adminUser" method="POST" action="action/doUpdateUser.php?pseudo=<?php echo $user->getPseudo() ?>">
                <div class="admin-item-gauche">	
                	   <span class="lbl-admin-produit lbl-marge-droite-input">Pseudo :</span>
     	           <input id="pseudo-user" type="text" name="pseudo" placeholder="pseudonyme" class="input-inscription" value="<?php echo $user->getPseudo() ?>" disabled><br/>	           
