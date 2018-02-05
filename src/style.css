@@ -703,7 +703,7 @@ span.input-error {
 
 .admin-item-gauche span {
 	display: inline-block;
-	width: 13%;
+	width: 20%;
 	float: left;
 	margin-left: 5%;
 }
@@ -711,7 +711,7 @@ span.input-error {
 .admin-item-gauche input {
 	float: left;
 	display: inline-block;
-	width: 72%;
+	width: 68%;
 	padding-left: 10px;
 	height: 30px;
 	font-family: Open Sans;
@@ -996,8 +996,8 @@ span.input-error {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	width:75%;
-	margin-left:-40px;
+	width:71%;
+	margin-left:-26px;
 }
 
 .admin-item-droit option{
