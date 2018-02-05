@@ -965,7 +965,7 @@ span.input-error {
 }
 
 .gestion-produit-admin {
-	height: 160px;
+	height: 195px;
 }
 
 .hauteur-gauche{
@@ -987,6 +987,17 @@ span.input-error {
 	font-weight: 500;
 	width:78%;
 	margin-left:-10px;
+}
+
+.selec-categorie {
+	height:37px;
+	font-family: Open Sans;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	width:75%;
+	margin-left:-40px;
 }
 
 .admin-item-droit option{

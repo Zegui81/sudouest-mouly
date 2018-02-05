@@ -12,6 +12,13 @@
 		           <input id="promo-prod" type="text" name="promo" placeholder="promotion" class="input-inscription remove-error" value="<?php echo (isset($produit) ? $produit->getPromotion() : '') ?>"><br/>
 		           <span class="remove-error lbl-admin-produit">Stock :</span>
 		           <input id="stock-prod" type="text" name="stock" placeholder="stock" class="input-inscription remove-error" value="<?php echo (isset($produit) ? $produit->getStock() : '') ?>"><br/>
+		           <span class="lbl-admin-produit">Catégorie:</span>
+    	           <select name="categorie" class="selec-categorie">
+    				  <option value="0" class="input-inscription">Vins</option>
+    				  <option value="1" class="input-inscription">Foisse</option>
+    				  <option value="2" class="input-inscription">Poisson</option>
+    				  <option value="3" class="input-inscription">Patates Cubes</option>
+    		       </select><br/><br/>
 	           </div>
 	           <div class="admin-item-droit">
 	           	   <span class="remove-error lbl-admin-produit">Description :</span>
