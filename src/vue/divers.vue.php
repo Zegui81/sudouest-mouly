@@ -82,6 +82,9 @@
         echo '<img id="a" src="images/slider/terroir1.jpg" alt="Terroir">';
         echo '<img id="b" src="images/slider/terroir2.jpg" alt="Terroir">';
         echo '<img id="c" src="images/slider/terroir3.jpg" alt="Terroir">';
+        echo '<img id="d" src="images/slider/terroir4.jpg" alt="Terroir">';
+        echo '<img id="e" src="images/slider/terroir5.jpg" alt="Terroir">';
+        echo '<img id="f" src="images/slider/terroir6.jpg" alt="Terroir">';
         echo '</div>';
         echo '</div>';
     }
