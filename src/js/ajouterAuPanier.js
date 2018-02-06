@@ -5,7 +5,7 @@ function verificationConnexion(pseudo, idProduit) {
 		openPopupConnexion();
 	} else {
 		// On effectue l'ajout et on ré-affiche la page 
-		window.location.replace('action/doAjoutPanier.php?produit=' + idProduit
+		window.location.replace('action/doAddProduitPanier.php?produit=' + idProduit
 				+ '&quantite=' + $('#quantite').val());
 	}
 }

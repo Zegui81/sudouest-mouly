@@ -62,7 +62,6 @@
     /* Créé un utilisateur */
     function createUtilisateur($pseudo, $mail, $mdpH, $nom, $prenom, $naissance,
         $adresse, $cp, $ville) {
-            
         $cnx = openBD(); // Connexion à la base de données
             
         $stmt = $cnx->prepare('INSERT INTO utilisateur '

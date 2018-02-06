@@ -32,6 +32,7 @@
     		    }
     		} else {
     		    // Pas d'argument, ajout d'un produit
+    		    
     		    require_once 'form/adminDetailProduit.php';
     		}
     		

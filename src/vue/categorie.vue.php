@@ -3,7 +3,7 @@
     function displayListeCategorie($listeCategorie) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
-        $html .= '<h1>Parcourez nos produits</h1>';
+        $html .= '<h1>Nos produits par catégorie</h1>';
         $html .= '<div class="categorie">';
         foreach ($listeCategorie as $categorie) {
             $html .= '<a href="listeProduit.php?categorie=';
@@ -71,8 +71,8 @@
         $html .= '<span class="admin-btn-menu">';
         $html .= 'Produits non classés';
         $html .= '</span></a>';
-        
         $html .= '</div><br>';
+        $html .= '<a href="adminDetailProduit.php" class="produit"><span class="btn-admin-ajout"><i class="fa fa-plus"></i>Ajouter un produit</span><br></a>';
         $html .= '</div>';
         $html .= '</div>';
         

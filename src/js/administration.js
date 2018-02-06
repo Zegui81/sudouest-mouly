@@ -170,3 +170,35 @@ function validateUpdateUser() {
   
 	return ok;
 }
+
+/* Contrôle avant la validation d'un produit */
+function validateProduit() {
+	// Réinitialisation du formulaire
+	$('#admin-produit-error').removeClass('error-form-admin');
+	$('#admin-produit-error').empty();
+	$('.remove-error').removeClass('input-error');
+
+	var ok = true;
+    var listeErreur = [];
+	var nom = $('#nom-prod').val().trim();
+	
+	if (nom === '') {
+		$('#label-nom-produit').addClass('input-error');
+    	$('#nom-prod').addClass('input-error');
+    	listeErreur.push('Le champ "Nom" est obligatoire.');
+    	ok = false;
+	}
+
+    // Affichage de la liste
+    if (!ok) {
+    	$('#admin-produit-error').addClass('error-form-admin');
+    	$('#admin-produit-error').append('Impossible de valider le formulaire car : ');
+    	$('#admin-produit-error').append('<ul>');
+    	listeErreur.forEach(function(element) {
+    		$('#admin-produit-error').append('<li>' + element + '</li>');
+    	});
+    	$('#admin-produit-error').append('</ul>');
+    }
+  
+	return ok;
+}

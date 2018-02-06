@@ -36,6 +36,19 @@
 	    return $donnees[0] == 1;
 	}
 	
+	/* Récupère le nom d'une catégorie avec le code */
+	function getNomCategorie($code) {
+	    $cnx = openBD(); // Connexion à la base de données
+	    
+	    $requete = $cnx->prepare('SELECT nom FROM categorie WHERE code = :code');
+	    $requete->bindParam(':code', $code);
+	    $requete->execute();
+	    $donnees = $requete->fetch();
+	    
+	    closeBD($cnx);
+	    return $donnees[0];
+	}
+	
 	/* Contrôle si l'insertion d'un code d'une catégorie est possible */
 	function controlCodeForInsert($nouveau) {
 	    $cnx = openBD(); // Connexion à la base de données

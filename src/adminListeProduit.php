@@ -1,6 +1,7 @@
 <?php session_start();
     include 'bd/divers.bd.php';
     include 'bd/produit.bd.php';
+    include 'bd/categorie.bd.php';
     include 'vue/divers.vue.php';
     include 'vue/produit.vue.php';
     include 'modele/Produit.php';
@@ -21,7 +22,9 @@
 	<body>
 		<?php displayMenu();
 		    
-		    displayListeProduitAdmin(getListeProduitByCategorie($_GET['categorie']));
+		    displayListeProduitAdmin(
+		        getListeProduitAdminByCategorie($_GET['categorie']),
+		        getNomCategorie($_GET['categorie']));
 		   	
 		   	displayScroller(); // Scroller pour remonter
 		?>

@@ -1,10 +1,10 @@
 <?php
 
     /* Affiche une liste de produit avec la description */
-    function displayListeProduit($listeProduit) {
+    function displayListeProduit($listeProduit, $titre) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
-        $html .= '<h1 class="page-produit">Parcourez nos produits</h1>';
+        $html .= '<h1 class="page-produit">'.$titre.'</h1>';
         $html .= '<div class="liste-produits">';
 
         foreach ($listeProduit as $produit) {
@@ -164,30 +164,45 @@
     }
     
     /* Affiche la liste des produits sous forme de tableau pour l'administration */
-    function displayListeProduitAdmin($listeProduit) {
+    function displayListeProduitAdmin($listeProduit, $nomCategorie) {
         $html = '<div class="white">';
         $html .= '<div class="produit">';
-        $html .= '<h1 class="page-produit no-merge">Liste des produits</h1>';
+        $html .= '<h1 class="page-produit no-merge">';
+        $html .= ($nomCategorie == null ? 'Produits non classés' : ('Produits de la catégorie : "'.$nomCategorie.'"'));
+        $html .= '</h1>';
         $html .= '<div class="conteneur-center">';
-        $html .= '<table class="tab-liste-produit-admin">';
-        $html .= '<tr>';
-        $html .= '<th class="marge-colonne-tab">Nom</th>';
-        $html .= '<th>Prix</th>';
-        $html .= '<th></th>';
-        $html .= '</tr>';
         
-        foreach ($listeProduit as $produit) {
+        if (count($listeProduit) == 0) {
+            // Liste vide
+            $html .= '<span class="erreur">Aucun produit trouvé.</span><br/>';
+        } else {
+            // Des produits ont été trouvés
+            $html .= '<table class="tab-liste-produit-admin">';
             $html .= '<tr>';
-            $html .= '<td  class="marge-colonne-tab">'.$produit->getNom().'</td>';
-            $html .= '<td>'.number_format($produit->getPrix(), 2, ',', ' ').' €</td>';
-            $html .= '<td><a href="adminDetailProduit.php?id='.$produit->getIdProduit().'"><span>Modifier</span></a>';
-            $html .= '<span>Retirer</span></td>';
+            $html .= '<th class="marge-colonne-tab">Nom</th>';
+            $html .= '<th>Prix</th>';
+            $html .= '<th></th>';
             $html .= '</tr>';
-        }
             
-        $html .= '</table>';
+            foreach ($listeProduit as $produit) {
+                $html .= '<tr>';
+                $html .= '<td  class="marge-colonne-tab">'.$produit->getNom().'</td>';
+                $html .= '<td>'.number_format($produit->getPrix(), 2, ',', ' ').' €</td>';
+                $html .= '<td><a href="adminDetailProduit.php?id='.$produit->getIdProduit().'"><span>Modifier</span></a>';
+                
+                if ($produit->getEtat() == 0) {
+                    // Le produit est désactivé
+                    $html .= '<a href="action/doEnableProduit.php?id='.$produit->getIdProduit().'"><span>Activer</span></td></a>';
+                } else {
+                    // Le produit est actif
+                    $html .= '<a href="action/doDisableProduit.php?id='.$produit->getIdProduit().'"><span>Retirer</span></td></a>';
+                }
+                $html .= '</tr>';
+            }
+            $html .= '</table>';
+        }
+
         $html .= '</div><br>';
-        $html .= '<div class="produit"><span class="btn-admin-ajout" onclick="addCategorie()"><i class="fa fa-plus"></i>Ajouter</span><br></div>';
         $html .= '</div>';
         $html .= '</div>';
         
