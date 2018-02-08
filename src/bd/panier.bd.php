@@ -80,4 +80,15 @@
         
         closeBD($cnx);  
     }
+    
+    /* Permet de vider le panier */
+    function removeAllProduitPanier($pseudo) {
+        $cnx = openBD(); // Connexion à la base de données
+        
+        $stmt = $cnx->prepare('DELETE FROM panier WHERE utilisateur = :utilisateur');
+        $stmt->bindParam(':utilisateur', $pseudo);
+        $stmt->execute();
+        
+        closeBD($cnx);
+    }
 ?>
