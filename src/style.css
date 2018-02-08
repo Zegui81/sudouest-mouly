@@ -1042,3 +1042,18 @@ span.input-error {
 .erreur-center{
 	text-align:center;
 }
+
+.btn-commander{
+	background-color:RGB(45,45,45) !important;
+	border:1px solid RGB(45,45,45) !important;
+	transition:0.2s !important;
+	cursor:pointer !important;
+	color:white !important;
+	margin-left:15px !important;
+	font-size:20px !important;
+	font-weight:600 !important;
+}
+
+.btn-commander:hover{
+	background-color:RGB(25,25,25) !important;
+}

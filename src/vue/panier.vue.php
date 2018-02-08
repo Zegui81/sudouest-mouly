@@ -41,6 +41,9 @@
             }
             
             $html .= '<div class="conteneur-produit total-final">';
+            $html .= '<a href="index.php"><div class="btn-prix total prix-final btn-commander">';
+            $html .= 'Commander';
+            $html .= '</div></a>';
             $html .= '<div class="btn-prix total prix-final">';
             $html .= number_format($totalFinal, 2, ',', ' ').' €';
             $html .= '</div>';
