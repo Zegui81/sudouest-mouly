@@ -41,7 +41,7 @@
             }
             
             $html .= '<div class="conteneur-produit total-final">';
-            $html .= '<a href="index.php"><div class="btn-prix total prix-final btn-commander">';
+            $html .= '<a href="action/doCommander.php?pseudo='.$_SESSION['pseudo'].'"><div class="btn-prix total prix-final btn-commander">';
             $html .= 'Commander';
             $html .= '</div></a>';
             $html .= '<div class="btn-prix total prix-final">';
