@@ -24,7 +24,7 @@
                 $html .= '<h2>'.$panier->getNom().'</h2>';
                 $html .= '<span>'.$panier->getDescription().'</span>';
                 $html .= '</div>';
-                $html .= '<a href="action/doDeleteProduitPanier.php?produit='.$panier->getProduit().'&quantite='.$panier->getQuantite().'"><span class="btn-ajout">';
+                $html .= '<a href="action/doRemoveProduitPanier.php?produit='.$panier->getProduit().'&quantite='.$panier->getQuantite().'"><span class="btn-ajout">';
                 $html .= '<i class="fa fa-trash-o" aria-hidden="true"></i>Enlever du panier';
                 $html .= '</span></a>';
                 $html .= '<div class="btn-prix total">';

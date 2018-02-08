@@ -10,6 +10,7 @@ function closePopupConnexion() {
 function validateConnexion() {
 	// Réinitialisation du formulaire
 	$('#connexion-error').empty();
+	$('#connexion-error').removeClass('error-form-popup');
 	
 	var ok = true;
 	var statut = -2;

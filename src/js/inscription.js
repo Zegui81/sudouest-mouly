@@ -2,6 +2,7 @@
 function validateInscription() {
 	// Réinitialisation du formulaire
 	$('.remove-error').removeClass('input-error');
+	$('#inscription-error').removeClass('error-form');
 	$('#inscription-error').empty();
 	
 	var formulaire = document.forms["inscription"];
