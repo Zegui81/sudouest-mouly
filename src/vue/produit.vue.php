@@ -66,7 +66,8 @@
         $html .= '<span>'.$produit->getDescription().'</span>';
         $html .= '</div>';
         
-        if ($produit->getStock() != 0) { // Stock non vide
+        $admin = isset($_SESSION['pseudo']) && $_SESSION['statut'] == 1;
+        if ($produit->getStock() != 0 && !$admin) { // Stock non vide et non admin
             $html .= '<a onclick="verificationConnexion(';
             $html .= (isset($_SESSION['pseudo']) ? ('\''.$_SESSION['pseudo'].'\'') : 'null').',';
             $html .= $produit->getIdProduit();
