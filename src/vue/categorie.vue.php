@@ -2,7 +2,7 @@
     /* Affiche la liste des catégories */
     function displayListeCategorie($listeCategorie) {
         $html = '<div class="white">';
-        $html .= '<div class="produit">';
+        $html .= '<div class="produit produit-center-responssive">';
         $html .= '<h1>Nos produits par catégorie</h1>';
         $html .= '<div class="categorie">';
         foreach ($listeCategorie as $categorie) {
