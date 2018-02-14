@@ -3,7 +3,7 @@
 	function getListeCategorie() {
 		$cnx = openBD(); // Connexion à la base de données
 		
-		$rqt = 'SELECT code, nom FROM categorie WHERE code NOT LIKE \'\_%\'';
+		$rqt = 'SELECT code, nom FROM categorie';
 		$requete = $cnx->prepare($rqt);
 		$requete->setFetchMode(PDO::FETCH_OBJ);
 					

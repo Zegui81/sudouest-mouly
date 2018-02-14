@@ -16,7 +16,7 @@
 		<?php displayMenu();
 		
 		  displaySliderAccueil();
-		  displayDescriptionAccueil(getDescriptionAccueil());
+		  displayDescriptionAccueil();
 		  
 		  // Catégories
 		  displayListeCategorie(getListeCategorie());

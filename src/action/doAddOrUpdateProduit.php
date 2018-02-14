@@ -12,7 +12,7 @@
                 $_POST['prix'],
                 $_POST['promo'] / 100,
                 $_POST['stock'],
-                $_POST['categorie'],
+                is_null($_POST['categorie']) ? null : $_POST['categorie'],
                 $_POST['description']);
         } else {
             // Ajout d'un produit
@@ -21,7 +21,7 @@
                 $_POST['prix'],
                 $_POST['promo'] / 100,
                 $_POST['stock'],
-                $_POST['categorie'],
+                $_POST['categorie'] == 'null' ? null : $_POST['categorie'],
                 $_POST['description']);
         }
     }

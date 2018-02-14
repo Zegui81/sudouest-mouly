@@ -90,9 +90,9 @@
     }
 
     /* Affiche la description sur l'écran d'accueil */
-    function displayDescriptionAccueil($description) {
+    function displayDescriptionAccueil() {
         $html = '<div class="legende"><p>';
-        $html .= $description;
+        $html .= file_get_contents('form/texteAccueil.txt');
         $html .= '</p></div>';
         echo $html;
     }

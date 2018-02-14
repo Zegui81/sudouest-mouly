@@ -181,11 +181,35 @@ function validateProduit() {
 	var ok = true;
     var listeErreur = [];
 	var nom = $('#nom-prod').val().trim();
+	var prix = $('#prix-prod').val().trim();
+	var promo = $('#promo-prod').val().trim();
+	var stock = $('#stock-prod').val().trim();
 	
 	if (nom === '') {
-		$('#label-nom-produit').addClass('input-error');
+		$('#label-nom-prod').addClass('input-error');
     	$('#nom-prod').addClass('input-error');
     	listeErreur.push('Le champ "Nom" est obligatoire.');
+    	ok = false;
+	}
+	
+	if (prix === '') {
+		$('#label-prix-prod').addClass('input-error');
+    	$('#prix-prod').addClass('input-error');
+    	listeErreur.push('Le champ "Prix" est obligatoire.');
+    	ok = false;
+	}
+	
+	if (promo === '') {
+		$('#label-promo-prod').addClass('input-error');
+    	$('#promo-prod').addClass('input-error');
+    	listeErreur.push('Le champ "Promotion" est obligatoire.');
+    	ok = false;
+	}
+	
+	if (stock === '') {
+		$('#label-stock-prod').addClass('input-error');
+    	$('#stock-prod').addClass('input-error');
+    	listeErreur.push('Le champ "Stock" est obligatoire.');
     	ok = false;
 	}
 
