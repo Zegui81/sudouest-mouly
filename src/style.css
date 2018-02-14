@@ -1063,3 +1063,21 @@ span.input-error {
 .btn-commander:hover {
 	background-color: RGB(25, 25, 25) !important;
 }
+
+.produit-center-responssive{
+	text-align:center;
+}
+	
+@media all and (max-width: 900px){
+	.slider{
+		display:none;
+	}
+	
+	.legende{
+		display:none;
+	}
+	
+	#search{
+		display:none;
+	}
+}
