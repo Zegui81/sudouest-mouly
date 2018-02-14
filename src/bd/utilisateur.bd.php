@@ -105,10 +105,11 @@
     }
     
     /* Permet d'obtenir la liste des utilisateurs */
-    function getListeUtilisateur() {
+    function getListeUtilisateur($admin) {
         $cnx = openBD(); // Connexion à la base de données
         
-        $requete = $cnx->prepare('SELECT pseudo, mail, role, supprime FROM utilisateur');
+        $requete = $cnx->prepare('SELECT pseudo, mail, role, supprime FROM utilisateur WHERE pseudo <> :admin');
+        $requete->bindParam(':admin', $admin);
         $requete->setFetchMode(PDO::FETCH_OBJ);
         
         $aRetouner = array();

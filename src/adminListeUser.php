@@ -15,7 +15,7 @@
 	<body>
 		<?php displayMenu();
 		    
-		    displayListeUtilisateur(getListeUtilisateur());
+		    displayListeUtilisateur(getListeUtilisateur($_SESSION['pseudo']));
 		   	
 		   	displayScroller(); // Scroller pour remonter
 		?>
