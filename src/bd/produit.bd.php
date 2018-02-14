@@ -135,7 +135,7 @@
         $cnx = openBD(); // Connexion à la base de données
         
         $rqt = 'SELECT idProduit, nom, prix, stock, promotion, categorie FROM produit '
-                .'WHERE etat = 1 ORDER BY stock, promotion, prix';
+                .'WHERE etat = 1 AND stock <> 0 ORDER BY stock, promotion, prix';
         $requete = $cnx->prepare($rqt);
         $requete->setFetchMode(PDO::FETCH_OBJ);
         

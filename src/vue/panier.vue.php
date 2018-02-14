@@ -10,7 +10,7 @@
             $html .= '<div class="liste-produits">';
             
             foreach ($listePanier as $panier) {
-                $totalPanier = $panier->getQuantite() * $panier->getPrix();
+                $totalPanier = $panier->getQuantite() * ($panier->getPrix() * (1 - $panier->getPromotion()));
                 $totalFinal += $totalPanier;
                 
                 $html .= '<div class="conteneur-produit">';

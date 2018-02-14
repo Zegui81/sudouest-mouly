@@ -3,6 +3,18 @@
     function addProduitPanier($pseudo, $idProduit, $quantite) {
         $cnx = openBD(); // Connexion à la base de données
         
+        // Récupération de la quantité déjà présente dans le panier
+        $stmt = $cnx->prepare('SELECT utilisateur, produit, quantite FROM panier '
+            .'WHERE utilisateur = :pseudo AND produit = :idProduit');
+        $stmt->bindParam(':pseudo', $pseudo);
+        $stmt->bindParam(':idProduit', $idProduit);
+        $stmt->execute();
+        
+        $quantitePresente = 0;
+        if ($donnees = $stmt->fetch()) {
+            $quantitePresente = $donnees[2];
+        }
+        
         $stmt = $cnx->prepare('REPLACE INTO panier '
             .'(utilisateur, produit, quantite) VALUES (:utilisateur, :produit, :quantite)');
         $stmt->bindParam(':utilisateur', $pseudo);
@@ -11,8 +23,9 @@
         $stmt->execute();
         
         // On décrémente le compteur de la quantité du produit
+        $aModifier = $quantite - $quantitePresente;
         $stmt = $cnx->prepare('UPDATE produit SET stock = stock - :quantite WHERE idProduit = :idProduit');
-        $stmt->bindParam(':quantite', $quantite);
+        $stmt->bindParam(':quantite', $aModifier);
         $stmt->bindParam(':idProduit', $idProduit);
         $stmt->execute();
         
