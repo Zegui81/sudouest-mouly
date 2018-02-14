@@ -33,7 +33,7 @@
             $html .= '<div class="admin-item-gauche">';
             $html .= '<span class="remove-error" id="labelcode-'.$categorie->getCode().'">Code :</span>';
             $html .= '<input type="text" name="code" placeholder="code" class="input-inscription remove-error" value="'.$categorie->getCode().'" id="'.$categorie->getCode().'-code"><br/>';
-            $html .= '<span class="remove-error" id="labelnom-'.$categorie->getNom().'">Libellé :</span>';
+            $html .= '<span class="remove-error" id="labelnom-'.$categorie->getCode().'">Libellé :</span>';
             $html .= '<input type="text" name="nom" placeholder="nom" class="input-inscription remove-error" value="'.$categorie->getNom().'" id="'.$categorie->getCode().'-nom"><br/>';
             $html .= '</div>';
             $html .= '<div class="admin-item-droit">';

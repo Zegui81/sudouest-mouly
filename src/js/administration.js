@@ -61,6 +61,7 @@ function validateEditCategorie(codeEdit) {
     		$('#admin-categorie-error').append('<li>' + element + '</li>');
     	});
     	$('#admin-categorie-error').append('</ul>');
+    	window.scrollTo(0,0);
     }
     
 	return ok;
@@ -110,6 +111,7 @@ function validateNewCategorie() {
 	    	listeErreur.push('Le champ "Libellé" est obligatoire.');
 	    	ok = false;
 		}
+		window.scrollTo(0,0);
 	}
 	return ok;
 	
